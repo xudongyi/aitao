@@ -148,7 +148,7 @@ public class DicAction {
 		query.setEntityClass(DicBean.class);
 		Map<String, Object> map=new HashMap<String, Object>();
 		map.put("sort", sort);
-        map.put("status","1");
+        map.put("status",1);
 		query.createSql(map);
 		List<?>list=dao.list();
 		return list;

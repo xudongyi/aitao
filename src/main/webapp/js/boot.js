@@ -1,11 +1,11 @@
-﻿window.UEDITOR_HOME_Prex = (location.href + "").split("/")[3];
-__CreateJSPath = function (js) {
+﻿/**将多个js引入在同一个文件中****/
+__CreateJSPath = function(js) {
     var scripts = document.getElementsByTagName("script");
     var path = "";
-    for (var i = 0, l = scripts.length; i < l; i++) {
+    for(var i = 0; i < scripts.length; i++) {
         var src = scripts[i].src;
-        if (src.indexOf(js) != -1) {
-            var ss = src.split(js);
+        if(src.indexOf(js) != -1) {
+            var ss = src.split(js)[0].split("/js");
             path = ss[0];
             break;
         }
@@ -16,7 +16,7 @@ __CreateJSPath = function (js) {
     var ss = href.split("/");
     ss.length = ss.length - 1;
     href = ss.join("/");
-    if (path.indexOf("https:") == -1 && path.indexOf("http:") == -1 && path.indexOf("file:") == -1 && path.indexOf("\/") != 0) {
+    if(path.indexOf("https:") == -1 && path.indexOf("http:") == -1 && path.indexOf("file:") == -1 && path.indexOf("\/") != 0) {
         path = href + "/" + path;
     }
     return path;
@@ -25,29 +25,19 @@ __CreateJSPath = function (js) {
 var bootPATH = __CreateJSPath("boot.js");
 
 //debugger
-mini_debugger = false;   
+mini_debugger = false;
 
-//skin
-var skin = getCookie("miniuiSkin");
-//设置默认皮肤 蓝色blue
-if(!skin){
-    skin="blue";
-    setcookie('miniuiSkin', skin, 100);
-}
-if (skin) {
-    document.write('<link href="' + bootPATH + 'miniui/themes/' + skin + '/skin.css" rel="stylesheet" type="text/css" />');
-    document.write('<link href="' + bootPATH + 'miniui/themes/' + skin + '/skin_nteport.css" rel="stylesheet" type="text/css" />');
-}
-//miniui
-document.write('<script src="' + bootPATH + 'jquery-1.9.1.min.js" type="text/javascript"></sc' + 'ript>');
-document.write('<script src="' + bootPATH + 'miniui/miniui.js" type="text/javascript" ></sc' + 'ript>');
-document.write('<script src="' + bootPATH + 'common.js" type="text/javascript"></sc' + 'ript>');
-document.write('<script src="' + bootPATH + 'ajaxloginout.js" type="text/javascript"></script>');
-document.write('<link href="' + bootPATH + 'miniui/themes/default/miniui.css" rel="stylesheet" type="text/css" />');
-document.write('<link href="' + bootPATH + 'miniui/themes/icons.css" rel="stylesheet" type="text/css" />');
-document.write('<link href="' + bootPATH + 'miniui/my-miniui-css/miniui-huihuan.css" rel="stylesheet" type="text/css" />');
-
-
+/*****miniui导入开始******/
+document.write('<link href="' + bootPATH + '/js/miniui/themes/default/miniui.css" rel="stylesheet" type="text/css" />');
+document.write('<link href="' + bootPATH + '/js/miniui/themes/icons.css" rel="stylesheet" type="text/css" />');
+document.write('<script src="' + bootPATH + '/js/jquery-1.9.1.min.js" type="text/javascript"></script>');
+document.write('<script src="' + bootPATH + '/js/common.js" type="text/javascript"></script>');
+document.write('<script src="' + bootPATH + '/js/miniui/miniui.js"></script>');
+//miniui改版
+document.write('<link href="' + bootPATH + '/js/miniui/themes/hh/skin.css" rel="stylesheet" type="text/css" />');
+//汇环miniui框架
+document.write('<link href="' + bootPATH + '/js/miniui/themes/hh/huihuan.css" rel="stylesheet" type="text/css" />');
+/*****miniui导入结束******/
 
 ////////////////////////////////////////////////////////////////////////////////////////
 function getCookie(sName) {

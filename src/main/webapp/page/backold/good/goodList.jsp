@@ -26,7 +26,7 @@
 </div>
 
 <div class="mini-fit">
-	<div id="datagrid" class="mini-datagrid" style="width:100%;height:100%;" pageSize="20" 
+	<div id="datagrid" class="mini-datagrid" style="width:100%;height:99%;" pageSize="10"
 		 url="${ctx}/goods/list.do"  idField="id" allowResize="true" allowSortColumn="false">
 		 <div property="columns">
        	<div type="indexcolumn"></div>
@@ -34,9 +34,9 @@
        	<div field="goodsName" width="150" headerAlign="center" align="center" >商品名称</div>
        	<div field="sellerNo" width="150" headerAlign="center" align="center" >商家名称</div>
        	<div field="brand" width="120" headerAlign="center" align="center">品牌</div>
-       	<div field="price" width="120" headerAlign="center" align="center">商品价格</div>
-       	<div field="totalCount" width="120" headerAlign="center" align="center">供货总量</div>
-        <div field="salseCount" width="120" headerAlign="center" align="center" >累计销量</div>
+       	<div field="price" width="80" headerAlign="center" align="center">商品价格</div>
+       	<div field="totalCount" width="80" headerAlign="center" align="center">供货总量</div>
+        <div field="salseCount" width="80" headerAlign="center" align="center" >累计销量</div>
         <div field="onShelve" width="120" headerAlign="center" align="center">商品状态</div>
         <div field="op" width="250" headerAlign="center" align="center" >操作</div>	
        	</div>

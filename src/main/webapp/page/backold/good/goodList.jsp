@@ -7,61 +7,56 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>商品基本信息</title>
 <script src="${ctx}/js/boot.js" type="text/javascript"></script>
-<script src="${ctx}/js/ajaxfileupload.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="top-search" id="queryForm">
-	<input class="mini-hidden" id="urlText">
 	<label>商家名称：</label>
 	<input class="mini-combobox" id="sellerNo" name="sellerNo" style="width:150px;" textField="sellerName" valueField="sellerNo" emptyText="请选择..."
 	 	url="${ctx}/seller/totalList.do" showNullItem="true" nullItemText="请选择..." allowinput="true">
-	<label>品牌：</label>
-	<input class="mini-combobox" name="brand" style="width:150px;" textField="text" valueField="value" emptyText="请选择..."
-	 	url="${ctx}/system/dic/consult.do?sort=brand" showNullItem="true" nullItemText="请选择...">
+	<label>商品名称：</label>
+	<input class="mini-textbox" name="goodsName" style="width:150px;">
 	
 	<a class="btn btn-primary btn-sm" iconCls="icon-search" onclick="query()">查询</a>
-	<a class="btn btn-info btn-sm" iconCls="icon-search" onclick="add()">新增</a>
-	<a class="btn btn-danger btn-sm" iconCls="icon-export" onclick="importGood()">导入CSV</a>
 
 </div>
 
 <div class="mini-fit">
-	<div id="datagrid" class="mini-datagrid" style="width:100%;height:99%;" pageSize="10"
+	<div id="datagrid" class="mini-datagrid" style="width:100%;height:100%;" pageSize="20" 
 		 url="${ctx}/goods/list.do"  idField="id" allowResize="true" allowSortColumn="false">
 		 <div property="columns">
        	<div type="indexcolumn"></div>
        	<div field="goodsNo" visible="false"></div>
+       	<div name="sellerNo" field="sellerNo" width="150" headerAlign="center" align="center" >商家名称</div>
        	<div field="goodsName" width="150" headerAlign="center" align="center" >商品名称</div>
-       	<div field="sellerNo" width="150" headerAlign="center" align="center" >商家名称</div>
        	<div field="brand" width="120" headerAlign="center" align="center">品牌</div>
-       	<div field="price" width="80" headerAlign="center" align="center">商品价格</div>
-       	<div field="totalCount" width="80" headerAlign="center" align="center">供货总量</div>
-        <div field="salseCount" width="80" headerAlign="center" align="center" >累计销量</div>
+       	<div field="price" width="120" headerAlign="center" align="center">商品价格</div>
+       	<div field="totalCount" width="120" headerAlign="center" align="center">供货总量</div>
+        <div field="salseCount" width="120" headerAlign="center" align="center" >累计销量</div>
         <div field="onShelve" width="120" headerAlign="center" align="center">商品状态</div>
-        <div field="op" width="250" headerAlign="center" align="center" >操作</div>	
+        <div field="op" width="120" headerAlign="center" align="center">操作</div>
        	</div>
 	</div>
 </div>
 
-<div id="win1" class="mini-window" title="" style="width:500px;height:360px;"
+<div id="win1" class="mini-window" title="" style="width:800px;height:350px;"
 	 showMaxButton="true" showCollapseButton="true" showShadow="true"
 	 showToolbar="true" showFooter="true" showModal="true" allowResize="true" allowDrag="true">
 	 <div id="editForm" style="padding:10px;">
 	 	<input class="mini-hidden" name="goodsNo" />
 	 	<table align="center">
-	 		<tr><td>商品名称:</td>
-	 			<td><input name="goodsName" class="mini-textbox" style="width:150px;" required="true"/></td>
-	 			<td>商家名称:</td>
+	 		<tr><td>商家名称:</td>
 	 			<td><input name="sellerNo" class="mini-combobox" style="width:150px;" textField="sellerName" valueField="sellerNo" 
-	 					url="${ctx}/seller/totalList.do" required="true"/></td>
-	 		<tr><td>商品分类:</td>
-	 			<td><input name="sortNo" class="mini-combobox" style="width:150px;" textField="text" valueField="text" 
-	 					url="${ctx}/system/dic/consult.do?sort=sortNo" required="true" /></td>
-	 			<td>品牌:</td>
-	 			<td><input name="brand" class="mini-combobox" style="width:150px;" textField="text" valueField="value" 
-	 					url="${ctx}/system/dic/consult.do?sort=brand" required="true" /></td>
+	 					url="${ctx}/seller/totalList.do" required="true" readonly /></td>
+	 			<td>商品名称:</td>
+	 			<td><input name="goodsName" class="mini-textbox" style="width:150px;" required="true"/></td>
+	 			<td>商品分类:</td>
+	 			<td><input name="sortNo" class="mini-treeselect" style="width:150px;" textField="sortName" valueField="sortNo" parentField="parentNO"
+	 					url="${ctx}/goods/sort/list.do" expandOnLoad="true" required="true" allowInput="true" onvalueChanged="sortChange" /></td>
 	 		</tr>
-	 		<tr><td>商品价格(元):</td>
+	 		<tr><td>品牌:</td>
+	 			<td><input id="brand" name="brand" class="mini-combobox" style="width:150px;" textField="sortPropertyValue"  
+	 					valueField="sortPropertyValue" url="" allowInput="true" required="true" /></td>
+	 			<td>商品价格(元):</td>
 	 			<td><input  name="price" class="mini-textbox" style="width:150px;" required="true" /></td>
 	 			<td>市场价(元):</td>
 	 			<td><input  name="marketPrice" class="mini-textbox" style="width:150px;" required="true" /></td>
@@ -69,30 +64,46 @@
 	 		<tr><td>商品状态:</td>
 	 			<td><input id="onShelve" name="onShelve" class="mini-combobox" style="width:150px;" textField="text" valueField="value" 
 	 					url="${ctx}/system/dic/consult.do?sort=onShelve" required="true" /></td>
-	 			<td>商品关键词:</td>
-	 			<td><input  name="keyWords" class="mini-textbox" style="width:150px;" required="true" /></td>
+	 			<td>爆款:</td>
+	 			<td><input name="popularSales" class="mini-combobox" style="width:150px;" textField="text" valueField="value" 
+	 					data="[{value:'1',text:'是'},{value:'0',text:'否'}]" /></td>
+	 			<td>热销:</td>
+	 			<td><input name="hotSales" class="mini-combobox" style="width:150px;" textField="text" valueField="value" 
+	 					data="[{value:'1',text:'是'},{value:'0',text:'否'}]" /></td>
 	 		</tr>
-	 		<tr><td>商品毛重(kg):</td>
+	 		<tr><td>新品:</td>
+	 			<td><input name="newGoods" class="mini-combobox" style="width:150px;" textField="text" valueField="value" 
+	 					data="[{value:'1',text:'是'},{value:'0',text:'否'}]" /></td>
+	 			<td>推荐:</td>
+	 			<td><input name="recSales" class="mini-combobox" style="width:150px;" textField="text" valueField="value" 
+	 					data="[{value:'1',text:'是'},{value:'0',text:'否'}]" /></td>
+	 			<td>精品:</td>
+	 			<td><input name="fine" class="mini-combobox" style="width:150px;" textField="text" valueField="value" 
+	 					data="[{value:'1',text:'是'},{value:'0',text:'否'}]" /></td>
+	 		</tr>
+	 		<tr><td>商品关键词:</td>
+	 			<td><input  name="keyWords" class="mini-textbox" style="width:150px;" required="true" /></td>
+	 			<td>商品毛重(kg):</td>
 	 			<td><input  name="grossWeight" class="mini-textbox" style="width:150px;" required="true" /></td>
 	 			<td>商品净重(kg):</td>
 	 			<td><input  name="netWeight" class="mini-textbox" style="width:150px;" required="true" /></td>
 	 		</tr>
-	 		<tr><td>上架时间:</td>
+	 		<tr>
+	 			<td>上架时间:</td>
 	 			<td><input name="shelfTime" class="mini-datepicker" format="yyyy-MM-dd" required="true"
 	 					 style="width:150px;"  /></td>
 	 			<td>供货总量:</td>
 	 			<td><input  name="totalCount" class="mini-textbox" style="width:150px;" required="true" /></td>
+	 			<td>累计销量:</td>
+	 			<td><input  name="salseCount" class="mini-textbox" style="width:150px;" /></td>
 	 		</tr>
-	 		<tr><td>累计销量:</td>
-	 			<td><input  name="salseCount" class="mini-textbox" style="width:150px;" value="0" readonly /></td>
-	 			<td>虚拟销量:</td>
-	 			<td><input  name="virtualSales" class="mini-textbox" style="width:150px;" required="true" /></td>
-	 		</tr>
-	 		<tr><td>排序:</td>
-	 			<td><input name="goodOrder" class="mini-textbox" style="width:150px;" required="true" /></td>
+	 		<tr><td>虚拟销量:</td>
+	 			<td><input  name="virtualSales" class="mini-textbox" style="width:150px;" /></td>
+	 			<td>排序:</td>
+	 			<td><input name="goodOrder" class="mini-textbox" style="width:150px;" /></td>
 	 			<td>商城分类:</td>
 	 			<td><input name="shopSort" class="mini-combobox" style="width:150px;" textField="text" valueField="value" 
-	 					url="${ctx}/system/dic/consult.do?sort=shopSort" required="true" /></td>
+	 					url="${ctx}/system/dic/consult.do?sort=shopSort" /></td>
 	 		</tr>
 	 		
 	 	</table>
@@ -102,26 +113,19 @@
 		 <a class="btn btn-danger btn-sm" iconCls="icon-cancel" onClick="cancel()">取消</a>
 	</div>
 
-
-	<div id="win2" class="mini-window" title="" style="width:400px;height:170px;"
-		 showMaxButton="true" showCollapseButton="true" showShadow="true"
-		 showToolbar="true" showFooter="true" showModal="true" allowResize="true" allowDrag="true">
-		<div  style="padding:10px;">
-			文件(.csv格式)：<input type="file" class="file"  name="file" id="file1" style="width:300px;"/>
-		</div>
-		<div property="footer" style="text-align:center;padding:5px;padding-right:15px;">
-			<a class="btn btn-primary btn-sm" iconCls="icon-cancel" onClick="uploadCVS()">上传</a>
-		</div>
-
-	<form id="exportForm" method="post"></form>
-
-</div>
-
 </body>
 <script type="text/javascript">
 	mini.parse();
 	var datagrid = mini.get("datagrid");
+	var brand = mini.get("brand"); 
+	var sortPropertyName = "品牌";
+	
 	datagrid.load();
+
+	// 合并行
+	datagrid.on("load", function () {
+        datagrid.mergeColumns(["sellerNo"]);
+    });
 	
 	//根据combobox的值获取text
 	function getTextByNo(value,data){
@@ -154,10 +158,7 @@
 			e.cellHtml = getText(value,mini.get(field).data);
 		}
 		if (field == "op") {
-			e.cellHtml = '<a class="btn btn-info btn-sm" href="javascript:exportGood(\''+record.goodsNo
-							+'\')";" style="text-decoration:none;">导出</a>&nbsp;<a class="btn btn-warning btn-sm" href="javascript:imgUpload(\''+record.goodsNo
-							+'\')";" style="text-decoration:none;">图片上传</a>&nbsp;<a class="btn btn-danger btn-sm" href="javascript:remove(\''+record.goodsNo
-							+'\')";" style="text-decoration:none;">删除</a>';
+			e.cellHtml = '<a class="btn btn-danger btn-sm" href="javascript:remove(\''+record.goodsNo+'\')";" style="text-decoration:none;">删除</a>';
 			
 		}
 	});
@@ -171,24 +172,31 @@
 	var win = mini.get("win1");
 	var form = new mini.Form("editForm");
 	
-	// 新增商品
-	function add() {
-		form.reset();
-		win.setTitle("新增商品信息");
-		win.showAtPos('center', 'middle');
-	}
-	
 	// 编辑商品
 	function edit() {
 		var row = datagrid.getSelected();
 		row.shelfTime = new Date(row.shelfTime);
 		form.setData(row);
+		// 品牌下拉列表数据
+		brand.setUrl("${ctx}/goods/sort/propertyListBySort.do?sortNo="+row.sortNo+"&sortPropertyName="+encodeURI(encodeURI(sortPropertyName)));
 		win.setTitle("修改商品信息");
 		win.showAtPos('center', 'middle');
 	}
 	
+	// 商品分类改变时
+	function sortChange(e) {
+		var sortNo = e.value;
+		// 商品分类及父类所有品牌的分类属性
+		brand.setUrl("${ctx}/goods/sort/propertyListBySort.do?sortNo="+sortNo+"&sortPropertyName="+encodeURI(encodeURI(sortPropertyName)));
+	}
+	
 	function save() {
 		if (form.validate()){
+			mini.mask({
+	            el: document.body,
+	            cls: 'mini-mask-loading',
+	            html: '保存中...'
+	         }); //在form校验成功后、ajax执行之前加载遮罩层
 			var data = form.getData();
 			$.ajax({
 				url: "${ctx}/goods/save.do",
@@ -228,7 +236,7 @@
 		mini.confirm("确认删除该商品信息？", "删除商品信息",function(e){
 			if(e=="ok"){
 				$.ajax({
-        		    url: "${ctx}/goods/delete.do",
+        		    url: "${ctx}/goods/deleteAll.do",
         		    type: "post",
         		    data:{ id: id },
         		    success: function (text) {
@@ -243,72 +251,5 @@
 		});
 	}
 
-
-	//商品导出
-	function exportGood(){
-		var row = datagrid.getSelected();
-		var url="${ctx}/export/exportgood.do?id="+row.goodsNo;
-		$('#exportForm').attr("action",url);
-		$("#exportForm").submit();
-	}
-
-
-	//商品导入
-	function importGood(){
-		var win2 = mini.get("win2");
-		win2.setTitle("导入CSV文件");
-		win2.showAtPos('center', 'middle');
-	}
-
-	//确认上传
-	function uploadCVS(){
-		form.loading();//遮罩层
-		var inputFile =  $("#file1")[0];
-		$.ajaxFileUpload({
-			url: "${ctx}/export/importgood.do",                 //用于文件上传的服务器端请求地址
-//			data: {json : json},            //附加的额外参数
-			fileElementId: inputFile,               //文件上传域的ID
-			dataType: 'json',                   //返回值类型 一般设置为json
-			type: "post",
-			success: function (data, status)    //服务器成功响应处理函数
-			{
-				form.unmask();//取消遮罩层
-//				if (status == "success") {
-//					win.hide();
-//					mini.alert("导入成功！", "提示", null);
-//				} else {
-//					mini.alert("导入失败！", "提示", null);
-//				}
-			},
-			error: function (data, status, e)   //服务器响应失败处理函数
-			{
-				form.unmask();//取消遮罩层
-			} ,
-			complete: function () {
-				form.unmask();//取消遮罩层
-				var jq = $("#file1");
-				jq.before(inputFile);
-				jq.remove();
-
-				mini.get("win2").hide();
-				datagrid.reload();
-				mini.alert("导入成功！", "提示", null);
-			}
-		});
-	}
-	
-    
-	// 图片上传
-	
-	function imgUpload(goodsNo) {
-		mini.open({
-			url: "${ctx}/page/backold/good/goodImg.jsp?goodsNo="+goodsNo,
-		      title: "上传图片", width: 700, height: 430,
-		      ondestroy: function (action) {
-		           datagrid.reload();
-		      }
-	    });
-	}
-	
 </script>
 </html>

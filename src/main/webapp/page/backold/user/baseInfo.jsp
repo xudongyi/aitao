@@ -41,7 +41,7 @@
 	</div>
 </div>
 
-<div id="win1" class="mini-window" title="" style="width:500px;height:400px;"
+<div id="win1" class="mini-window" title="" style="width:550px;height:420px;"
 	 showMaxButton="true" showCollapseButton="true" showShadow="true"
 	 showToolbar="true" showFooter="true" showModal="true" allowResize="true" allowDrag="true">
 	 <div id="viewForm" style="padding:10px;">
@@ -85,8 +85,9 @@
 	 			<td>所在区域:</td>
 	 			<td><input name="area" class="mini-textbox" style="width:150px;"  readOnly /></td>
 	 		</tr>
-	 		<tr><td>商家编号:</td>
-	 			<td><input name="sellerNo" class="mini-textbox" style="width:150px;" readOnly /></td>
+	 		<tr><td>商家名称:</td>
+	 			<td><input name="sellerNo" class="mini-combobox" style="width:150px;" readOnly
+	 					 textField="sellerName" valueField="sellerNo" url="${ctx}/seller/totalList.do" /></td>
 	 			<td>登录次数:</td>
 	 			<td><input name="loginCount" class="mini-textbox" style="width:150px;"  readOnly /></td>
 	 		</tr>

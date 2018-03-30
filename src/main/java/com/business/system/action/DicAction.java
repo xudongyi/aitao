@@ -8,6 +8,14 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
 import net.sf.rose.jdbc.PageBean;
 import net.sf.rose.jdbc.bean.DicBean;
 import net.sf.rose.jdbc.dao.BeanDAO;
@@ -16,14 +24,6 @@ import net.sf.rose.jdbc.service.Service;
 import net.sf.rose.json.JsonTreeBean;
 import net.sf.rose.util.StringUtil;
 import net.sf.rose.web.utils.WebUtils;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 
 /**
  * @author fengjian
@@ -142,7 +142,7 @@ public class DicAction {
 	
 	@ResponseBody
 	@RequestMapping("/consult.do")
-	public List<?> consult(HttpServletRequest request, HttpServletResponse response, Service service, String sort) {
+	public List<?> consult(HttpServletRequest request, HttpServletResponse response, Service service,String sort) {
 		BeanDAO dao = new BeanDAO(service);
 		BeanSQL query = dao.getQuerySQL();
 		query.setEntityClass(DicBean.class);

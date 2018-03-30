@@ -7,207 +7,196 @@ import net.sf.rose.jdbc.bean.annotation.Type;
 /**
  * @description 商品分类信息表
  * @author system
- * @since 2017-02-24 20:24:16
+ * @since 2017-03-24 17:04:33
  */
 @Table(name = "GOODS_SORT", description = "商品分类信息表")
-public class GoodsSortBean {
+public class GoodsSortBean{
 
 	/** 商品分类编号 */
-	@Column(pk = true, name = "SORT_NO", type = Type.定长文本, description = "商品分类编号", canNull = false, size = 32, policy = "UUID")
+	@Column(pk = true, name = "SORT_NO", type = Type.定长文本, description = "商品分类编号", canNull = true, size = 32, policy = "UUID")
 	private String sortNo;
 
 	/** 分类代码 */
-	@Column(name = "SORT_CODE", type = Type.变长文本, description = "分类代码", canNull = false, size = 50)
+	@Column(name = "SORT_CODE", type = Type.变长文本, description = "分类代码", canNull = true, size = 50)
 	private String sortCode;
 
+	/** 淘宝代码 */
+	@Column(name = "TB_CODE", type = Type.变长文本, description = "淘宝代码", canNull = true, size = 50)
+	private String tbCode;
+
+	/** 京东代码 */
+	@Column(name = "JD_CODE", type = Type.变长文本, description = "京东代码", canNull = true, size = 50)
+	private String JdCode;
+
 	/** 分类名称 */
-	@Column(name = "SORT_NAME", type = Type.变长文本, description = "分类名称", canNull = false, size = 50)
+	@Column(name = "SORT_NAME", type = Type.变长文本, description = "分类名称", canNull = true, size = 50)
 	private String sortName;
 
 	/** 排序 */
-	@Column(name = "SORT_ORDER", type = Type.数字整型, description = "排序", canNull = false)
+	@Column(name = "SORT_ORDER", type = Type.数字整型, description = "排序", canNull = true)
 	private int sortOrder;
 
 	/** 启用 */
-	@Column(name = "ON_USE", type = Type.数字整型, description = "启用", canNull = false)
+	@Column(name = "ON_USE", type = Type.数字整型, description = "启用", canNull = true)
 	private int onUse;
 
-	/** 创建人 */
-	@Column(name = "CREATE_USER", type = Type.变长文本, description = "创建人", canNull = false, size = 50)
-	private String createUser;
+	/** 父级分类 */
+	@Column(name = "PARENT_NO", type = Type.定长文本, description = "父级分类", canNull = true, size = 32)
+	private String parentNO;
 
-	/** 创建时间 */
-	@Column(name = "CREATE_TIME", type = Type.日期时间, description = "创建时间", canNull = false)
-	private java.sql.Timestamp createTime;
-
-	/** 修改人 */
-	@Column(name = "UPDATE_USER", type = Type.变长文本, description = "修改人", canNull = false, size = 50)
-	private String updateUser;
-
-	/** 修改时间 */
-	@Column(name = "UPDATE_TIME", type = Type.日期时间, description = "修改时间", canNull = false)
-	private java.sql.Timestamp updateTime;
+    /** 是否显示在首页*/
+    @Column(name = "SHOW_INDEX", type = Type.数字整型, description = "是否显示在首页", canNull = true)
+	private int showIndex;
 
 	/**
 	 * @description 获取商品分类编号
 	 * @author system
-	 * @since 2017-02-24 20:24:16
+	 * @since 2017-03-24 17:04:33
 	 */
 	public String getSortNo() {
 		return sortNo;
 	}
 
 	/**
-	 * @description 设置商品分类编号
-	 * @author system
-	 * @since 2017-02-24 20:24:16
-	 */
-	public void setSortNo(String sortNo) {
-		this.sortNo = sortNo;
-	}
-
-	/**
 	 * @description 获取分类代码
 	 * @author system
-	 * @since 2017-02-24 20:24:16
+	 * @since 2017-03-24 17:04:33
 	 */
 	public String getSortCode() {
 		return sortCode;
 	}
 
 	/**
-	 * @description 设置分类代码
+	 * @description 获取淘宝代码
 	 * @author system
-	 * @since 2017-02-24 20:24:16
+	 * @since 2017-03-28 20:02:49
 	 */
-	public void setSortCode(String sortCode) {
-		this.sortCode = sortCode;
+	public String getTbCode() {
+		return tbCode;
+	}
+
+	/**
+	 * @description 获取京东代码
+	 * @author system
+	 * @since 2017-03-28 20:02:49
+	 */
+	public String getJdCode() {
+		return JdCode;
 	}
 
 	/**
 	 * @description 获取分类名称
 	 * @author system
-	 * @since 2017-02-24 20:24:16
+	 * @since 2017-03-24 17:04:33
 	 */
 	public String getSortName() {
 		return sortName;
 	}
 
 	/**
-	 * @description 设置分类名称
-	 * @author system
-	 * @since 2017-02-24 20:24:16
-	 */
-	public void setSortName(String sortName) {
-		this.sortName = sortName;
-	}
-
-	/**
 	 * @description 获取排序
 	 * @author system
-	 * @since 2017-02-24 20:24:16
+	 * @since 2017-03-24 17:04:33
 	 */
 	public int getSortOrder() {
 		return sortOrder;
 	}
 
 	/**
-	 * @description 设置排序
-	 * @author system
-	 * @since 2017-02-24 20:24:16
-	 */
-	public void setSortOrder(int sortOrder) {
-		this.sortOrder = sortOrder;
-	}
-
-	/**
 	 * @description 获取启用
 	 * @author system
-	 * @since 2017-02-24 20:24:16
+	 * @since 2017-03-24 17:04:33
 	 */
 	public int getOnUse() {
 		return onUse;
 	}
 
 	/**
+	 * @description 获取父级分类
+	 * @author system
+	 * @since 2017-03-24 17:04:33
+	 */
+	public String getParentNO() {
+		return parentNO;
+	}
+
+	/**
+	 * @description 设置商品分类编号
+	 * @author system
+	 * @since 2017-03-24 17:04:33
+	 */
+	public void setSortNo(String sortNo) {
+		this.sortNo = sortNo;
+	}
+
+	/**
+	 * @description 设置分类代码
+	 * @author system
+	 * @since 2017-03-24 17:04:33
+	 */
+	public void setSortCode(String sortCode) {
+		this.sortCode = sortCode;
+	}
+
+	/**
+	 * @description 设置淘宝代码
+	 * @author system
+	 * @since 2017-03-28 20:02:49
+	 */
+	public void setTbCode(String tbCode) {
+		this.tbCode = tbCode;
+	}
+
+	/**
+	 * @description 设置京东代码
+	 * @author system
+	 * @since 2017-03-28 20:02:49
+	 */
+	public void setJdCode(String JdCode) {
+		this.JdCode = JdCode;
+	}
+
+	/**
+	 * @description 设置分类名称
+	 * @author system
+	 * @since 2017-03-24 17:04:33
+	 */
+	public void setSortName(String sortName) {
+		this.sortName = sortName;
+	}
+
+	/**
+	 * @description 设置排序
+	 * @author system
+	 * @since 2017-03-24 17:04:33
+	 */
+	public void setSortOrder(int sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+
+	/**
 	 * @description 设置启用
 	 * @author system
-	 * @since 2017-02-24 20:24:16
+	 * @since 2017-03-24 17:04:33
 	 */
 	public void setOnUse(int onUse) {
 		this.onUse = onUse;
 	}
 
 	/**
-	 * @description 获取创建人
+	 * @description 设置父级分类
 	 * @author system
-	 * @since 2017-02-24 20:24:16
+	 * @since 2017-03-24 17:04:33
 	 */
-	public String getCreateUser() {
-		return createUser;
+	public void setParentNO(String parentNO) {
+		this.parentNO = parentNO;
 	}
 
-	/**
-	 * @description 设置创建人
-	 * @author system
-	 * @since 2017-02-24 20:24:16
-	 */
-	public void setCreateUser(String createUser) {
-		this.createUser = createUser;
-	}
+    public int getShowIndex() {
+        return showIndex;
+    }
 
-	/**
-	 * @description 获取创建时间
-	 * @author system
-	 * @since 2017-02-24 20:24:16
-	 */
-	public java.sql.Timestamp getCreateTime() {
-		return createTime;
-	}
-
-	/**
-	 * @description 设置创建时间
-	 * @author system
-	 * @since 2017-02-24 20:24:16
-	 */
-	public void setCreateTime(java.sql.Timestamp createTime) {
-		this.createTime = createTime;
-	}
-
-	/**
-	 * @description 获取修改人
-	 * @author system
-	 * @since 2017-02-24 20:24:16
-	 */
-	public String getUpdateUser() {
-		return updateUser;
-	}
-
-	/**
-	 * @description 设置修改人
-	 * @author system
-	 * @since 2017-02-24 20:24:16
-	 */
-	public void setUpdateUser(String updateUser) {
-		this.updateUser = updateUser;
-	}
-
-	/**
-	 * @description 获取修改时间
-	 * @author system
-	 * @since 2017-02-24 20:24:16
-	 */
-	public java.sql.Timestamp getUpdateTime() {
-		return updateTime;
-	}
-
-	/**
-	 * @description 设置修改时间
-	 * @author system
-	 * @since 2017-02-24 20:24:16
-	 */
-	public void setUpdateTime(java.sql.Timestamp updateTime) {
-		this.updateTime = updateTime;
-	}
-
+    public void setShowIndex(int showIndex) {
+        this.showIndex = showIndex;
+    }
 }

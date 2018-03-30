@@ -1,0 +1,151 @@
+
+.mini-outlookbar,.mini-menu{
+    font-family: "微软雅黑";
+}
+/**整体背景样式**/
+.mini-outlookbar .mini-outlookbar-groupHeader {
+    background: #39A9F9 url(../images/icon-myminiui/header.png) repeat-x 0 0;
+}
+
+.mini-outlookbar-groupHeader{
+    height: 29px;
+    line-height: 29px;
+    padding:4px 25px 3px 22px;
+    font-weight: bold;
+    font-size:15px ;
+    color:white;
+}
+.mini-outlookbar-groupHeader .mini-tools{
+    top: 8px;
+}
+.mini-menuitem{
+    line-height: 39px;
+    height: 39px;
+    margin-top:2px;
+    background: url(../images/main/index_05.png) no-repeat bottom left;
+    background-size: 240px auto;
+}
+
+.mini-menuitem-hover
+{
+    border:solid 1px #F6CD59;
+    background: #F6CD59 url(../images/icon-myminiui/pressed.png) repeat-x 0 0;
+    border-left:4px solid red;
+}
+    /*选中样式*/
+.mini-menuitem-selected {
+    border-color: #F6CD59;
+    background: #F6CD59 url(../images/icon-myminiui/pressed.png) repeat-x 0 0;
+    border-left:4px solid red;
+}
+.mini-layout-region{
+    border-color: #39A9F9;
+}
+.mini-outlookbar-border {
+    border-color: #39A9F9;
+    border-left: 1px solid #39A9F9;
+}
+ .mini-menuitem-allow{
+    left: 20px;
+    top: 8px;
+}
+.mini-menuitem-icon{
+	left: 20px;
+    top: 11px;
+}
+.mini-menuitem-inner{
+    padding-left: 44px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    font-size:13px;
+}
+.mini-outlookbar .mini-outlookbar-collapse .mini-tools-collapse{
+    background: url(../images/icon-myminiui/collapse.gif) no-repeat 50% 50%;
+}
+
+.mini-outlookbar .mini-outlookbar-expand .mini-tools-collapse {
+    background: url(../images/icon-myminiui/expand.gif) no-repeat 50% 50%;
+}
+.mini-tools .mini-tools-collapse
+{
+    background:url(../images/icon-myminiui/collapse.gif) no-repeat 50% 50%;
+    width:13px;
+}
+/****tab***/
+.mini-tabs-bodys{
+    border:0;
+    
+}
+.mini-tabs-scrollCt{
+    border:0;
+    border-bottom: solid 1px #8CB2E2;
+}
+.mini-tab{
+    border-color: #39A9F9;
+    padding: 3px 5px 3px 5px;
+    border-radius: 5px;
+    color:white;
+    background:url(../images/icon-myminiui/bianji-bt1.png);
+   
+}
+.mini-tab-active {
+    background:url(../images/icon-myminiui/bt3.png);
+    
+}
+.mini-tab-text{
+    font-family: "微软雅黑";
+
+}
+.mini-tab-close {
+   background:url(../images/icon-myminiui/close.png);
+}
+
+.mini-tabs-space {
+    border-color: #8CB2E2;
+    border-bottom: solid 1px #8CB2E2;
+}
+
+.icon-sellerList {
+	background:url(../images/main/icon/a-sjlb.png) no-repeat;;
+}
+
+.icon-goodList {
+	background:url(../images/main/icon/splb.png) no-repeat;;
+}
+
+.icon-userList {
+	background:url(../images/main/icon/b-yhxx.png) no-repeat;;
+}
+
+.icon-sort {
+	background:url(../images/main/icon/c-spfl.png) no-repeat;;
+}
+
+.icon-dic {
+	background:url(../images/main/icon/d-sjzd.png) no-repeat;;
+}
+
+.icon-base {
+	background:url(../images/main/icon/1-jbxx.png) no-repeat;;
+}
+
+.icon-good {
+	background:url(../images/main/icon/2-spxx.png) no-repeat;;
+}
+
+.icon-addGood {
+	background:url(../images/main/icon/3-tjsp.png) no-repeat;;
+}
+
+.icon-comment {
+	background:url(../images/main/icon/4-yhpl.png) no-repeat;;
+}
+
+.icon-attention {
+	background:url(../images/main/icon/5-zxgz.png) no-repeat;;
+}
+
+
+
+
+    

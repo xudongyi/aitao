@@ -1,26 +1,28 @@
 package com.business.system.action;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.business.system.bean.GoodsFileBean;
-import net.sf.rose.initial.BootStart;
-import net.sf.rose.jdbc.dao.BeanDAO;
-import net.sf.rose.jdbc.query.BeanSQL;
-import net.sf.rose.jdbc.service.Service;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import sun.misc.BASE64Encoder;
-
-/**
+import net.sf.rose.initial.BootStart;
+import net.sf.rose.jdbc.dao.BeanDAO;
+import net.sf.rose.jdbc.query.BeanSQL;
+import net.sf.rose.jdbc.service.Service;
+import net.sf.rose.web.utils.WebUtils;
+/** 
  * @author fengjian E-mail: 9110530@qq.com 
  * @version 创建时间：2017年2月17日 下午3:58:56 
  * 类说明：商品管理
@@ -37,17 +39,19 @@ public class GoodsFileAction {
 	@ResponseBody
 	@RequestMapping("/list.do")
 	public List<GoodsFileBean> list(HttpServletRequest request, Service service, String goodsNo) {
+		Map<String, Object> map = WebUtils.getRequestData(request);
 		BeanDAO dao = new BeanDAO(service);
 		BeanSQL query = dao.getQuerySQL();
 		query.setEntityClass(GoodsFileBean.class);
-		query.createSql("goodsNo",goodsNo);
+		query.createSql(map);
+		query.addOrderby("goodsNo");
+		query.addOrderby("fileOrder");
 		return dao.list();
 	}
 	
 	@ResponseBody
 	@RequestMapping("save.do")
-	public Map<String,Object> save(HttpServletRequest request, HttpServletResponse response, Service service,
-			String id, String goodsNo, String fileUrl) {
+	public Map<String,Object> save(Service service, String id, String goodsNo, String fileUrl) {
 		GoodsFileBean bean = new GoodsFileBean();
 		bean.setFileID(id);
 		bean.setGoodsNo(goodsNo);
@@ -66,8 +70,14 @@ public class GoodsFileAction {
 	
 	@ResponseBody
 	@RequestMapping("getImg.do")
-    public String getImg(HttpServletRequest request, HttpServletResponse response, String url) {
-        String ctxPath = BootStart.getInstance().getWorkSpace().getAbsolutePath();
+    public String getImg(String url) {
+        String ctxPath = "D://uploadFiles";
+        if (OS.indexOf("linux") >= 0) {
+            ctxPath = "/usr/local/app/appserver-01/webapps/imglibs";
+        } else if (OS.indexOf("windows") >= 0) {
+            ctxPath = BootStart.WINDOWS_PATH;
+        }
+
         url = ctxPath+"/"+url;
         String imgStr = "";
         try {
@@ -94,7 +104,7 @@ public class GoodsFileAction {
 	
 	@ResponseBody
 	@RequestMapping("delete.do")
-	public int delete(HttpServletRequest request, HttpServletResponse response, Service service, String id) {
+	public int delete(Service service, String id) {
 		BeanDAO dao = new BeanDAO(service);
 		BeanSQL query = dao.getQuerySQL();
 		query.createDeleteSql(GoodsFileBean.class, id);

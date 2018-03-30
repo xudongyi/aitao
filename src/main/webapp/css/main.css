@@ -1,0 +1,335 @@
+
+.head-top {
+    width: 100%;
+    height: 67px;
+    background: #61bcfd url(../images/main/nb_logo.png) 4% 50% no-repeat;
+      /*  background: #024E99 url(../images/anhui/logo.png) left center no-repeat;  */
+}
+
+.head-bottom-left {
+    float: left;
+    height: 27px;
+    width: 250px;
+    background: url(../images/main/index_03_01.png) left top no-repeat;
+    background-size: cover;
+}
+
+.bottom-01 {
+    float: left;
+    position: absolute;
+    left: 20px;
+    bottom: 40px;
+    top: 70px;
+}
+
+.head-bottom-right {
+    height: 27px;
+    margin-left: 250px;
+    background: url(../images/main/index_03_02.png) left top repeat-x;
+    overflow: hidden;
+}
+
+.bottom-02 {
+    float: right;
+    position: absolute;
+    right: 120px;
+    bottom: 40px;
+    top: 70px;
+}
+
+.top-hover-1, .top-hover-2, .top-hover-3, .top-hover-4 {
+    float: right;
+    position: absolute;
+    width: 79px;
+    height: 79px;
+    display: block;
+    background-size: 79px 79px;
+    bottom: 20px;
+}
+.top-hover-5{
+	float: right;
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    display: block;
+    top:15px;
+    margin-right:20px;
+    background: url("../images/main/tuic.png") center no-repeat;
+}
+
+.top-hover-1 {
+    right: 220px;
+    background: url("../images/main/1-1.png") no-repeat;
+}
+
+.top-hover-2 {
+    right: 150px;
+    background: url("../images/main/2-1.png") no-repeat;
+}
+
+.top-hover-3 {
+    right: 80px;
+    background: url("../images/main/3-1.png") no-repeat;
+}
+
+.top-hover-4 {
+    right: 10px;
+    background: url("../images/main/4-1.png") no-repeat;
+}
+
+.top-hover-1:hover {
+    background: url("../images/main/1.png") no-repeat;
+}
+
+.top-hover-2:hover {
+    background: url("../images/main/2.png") no-repeat;
+}
+
+.top-hover-3:hover {
+    background: url("../images/main/3.png") no-repeat;
+}
+
+.top-hover-4:hover {
+    background: url("../images/main/4.png") no-repeat;
+}
+
+/**************************main样式**************************/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.cl {
+    clear: both;
+}
+
+.container {
+    font-family: "微软雅黑";
+}
+
+.container-main {
+    width: 98.5%;
+    margin-bottom: 18px;
+    height: auto !important;
+    overflow: hidden;
+}
+
+.main-top {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #D0D0D0;
+}
+
+.main-top-title {
+    width: 18%;
+    height: 97%;
+    margin-left: 20px;
+    padding-left: 12px;
+    font-size: 24px;
+    border-bottom: 4px solid #77C402;
+}
+
+.top-title-detail {
+    width: 100%;
+    height: 20px;
+    display: inline-block;
+    border-left: 4px solid red;
+    padding-left: 10px;
+    line-height: 20px;
+    margin-top: 10px;
+}
+
+.main-body {
+    width: 100%;
+    height: auto !important;
+}
+
+.main-body-content {
+    width: 100%;
+    height: 105px;
+    margin: 10px auto;
+}
+
+.main-body-label {
+    width: 28%;
+    height: 100px;
+    margin: 0 0 0 10px;
+    padding: 10px 10px;
+}
+
+.label-blue {
+    background-color: #4C8DEE;
+}
+
+.label-blue-dark {
+    background-color: #3277DF;
+}
+
+.label-light-bule {
+    background-color: #509DA3;
+}
+
+.label-light-bule-dark {
+    background-color: #61C6D0;
+}
+
+.label-green {
+    background-color: #79C447;
+}
+
+.label-green-dark {
+    background-color: #6EBA3C;
+}
+
+.main-body-label .main-label-number {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.main-body-label .main-label-text {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    height: auto !important;
+}
+
+/****实时数据展示开始********/
+.main-body-current {
+    width: 46.5%;
+    height: 220px;
+    margin: 0 0 0 10px;
+    padding: 10px 10px;
+    border: 2px solid #F6CD59
+}
+
+.current-title {
+    border-left: 3px solid red;
+    padding-left: 5px;
+    margin-bottom: 5px;
+}
+
+.current-content {
+    border-top: 1px solid #D0D0D0;
+}
+
+.text-content {
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width:60%;
+    vertical-align: middle;
+    touch-action: manipulation;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 10px 10px;
+    font-size: 15px;
+    line-height: 1;
+}
+.text-content>a{
+    display: inline-block;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 3px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.text-success{
+    color: #5cb85c;
+}
+.text-info{
+    color: #5bc0de;
+}
+.text-danger{
+    color: #d9534f;
+}
+/*****实时数据展示结束******/
+
+/***图表样式开始***/
+.main-body-chart-400 {
+    width: 388px;
+    height: auto !important;
+    margin-left: 9px;
+    margin-top: 10px;
+    border: 1px solid #39A9F9;
+}
+
+.main-body-chart-58 {
+    width: 98%;
+    height: auto !important;
+    margin: 0 0 0 10px;
+}
+
+.main-body-chart-38 {
+    width: 38%;
+    height: auto !important;
+    margin: 0 0 0 10px;
+}
+
+.body-chart-top {
+    height: 300px;
+}
+
+.main-body-chart-58 .body-chart-top {
+    height: 450px;
+
+}
+
+/***图表样式结束***/

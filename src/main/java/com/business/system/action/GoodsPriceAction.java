@@ -6,16 +6,14 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.business.system.bean.GoodsPriceBean;
-import net.sf.rose.jdbc.PageBean;
-import net.sf.rose.jdbc.dao.BeanDAO;
-import net.sf.rose.jdbc.query.BeanSQL;
-import net.sf.rose.jdbc.service.Service;
-import net.sf.rose.web.utils.WebUtils;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import net.sf.rose.jdbc.dao.BeanDAO;
+import net.sf.rose.jdbc.query.BeanSQL;
+import net.sf.rose.jdbc.service.Service;
+import net.sf.rose.web.utils.WebUtils;
 
 /** 
  * @author fengjian E-mail: 9110530@qq.com 
@@ -33,13 +31,12 @@ public class GoodsPriceAction {
 	@ResponseBody
 	@RequestMapping("/list.do")
 	public List<GoodsPriceBean> list(HttpServletRequest request, Service service) {
-		PageBean page = WebUtils.getPageBean(request);
 		Map<String, Object> map = WebUtils.getRequestData(request);
 		BeanDAO dao = new BeanDAO(service);
 		BeanSQL query = dao.getQuerySQL();
 		query.setEntityClass(GoodsPriceBean.class);
 		query.createSql(map);
-		query.setPage(page);
+		query.addOrderby("sortOrder");
 		return dao.list();
 	}
 

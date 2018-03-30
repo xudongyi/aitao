@@ -17,6 +17,7 @@
                 + "src='${ctx}/js/uploadify/jquery.uploadify.min.js?" + new Date()
                 + "'></s" + "cript>");
     </script>
+    <script type="text/javascript" src="${ctx}/js/uploadify/jquery.uploadify.js"></script>
     <!--文件上传JS插件引入包 结束-->
     <style type="text/css">
         table tr {
@@ -26,7 +27,7 @@
 </head>
 
 <body>
-<div class="mini-fit bg">
+<div class="bg" style="height:60px;">
     <div id="div_form" >
     <input class="mini-hidden" name="filename" id="filename">
     <input class="mini-hidden" name="filepath" id="filepath">
@@ -36,6 +37,7 @@
                     <div id="status-message" style="font-family:黑体;color:red;padding-left: 10px;">
                         *----提示：只能上传一个文件，如果上传多个文件，取最新上传的----*
                     </div>
+                </td>
                 </td>
             </tr>
             <tr>
@@ -113,7 +115,7 @@
             buttonText: "请上传文件",                 // 按钮上的文字
             buttonCursor: 'hand',                // 按钮的鼠标图标
             fileObjName: 'uploadify',
-            fileTypeExts: "*.jpg;*.gif;*.png",             // 扩展名
+            fileTypeExts: "*.*",             // 扩展名
             fileTypeDesc: "请选择文件",     // 文件说明
             auto: true,                // 选择之后，自动开始上传
             multi: false,               // 是否支持同时上传多个文件
@@ -123,7 +125,17 @@
             uploadLimit : 5,//允许上传的文件的个数
             'onUploadSuccess': function (file, data, response) {
                 if (data) {
-                	top["win"].document.getElementById(fileinputid).value = data;
+	                if (fileinputid == "propertyImg") {
+	                	var datagrid = top["win"].mini.get("datagrid2");
+	                	var row = datagrid.getSelected();
+	                	row.img = data;
+	                	if (row._state != "added") {
+	                		row._state = "modified";
+	                	}
+	                	datagrid.updateRow(row,mini.decode(row));
+	                } else {
+	                	top["win"].document.getElementById(fileinputid).value = data;
+	                }
                 	setTimeout('CloseOwnerWindow()',800);
                 }
             },

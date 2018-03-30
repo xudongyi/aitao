@@ -13,35 +13,35 @@ import net.sf.rose.jdbc.bean.annotation.Type;
 public class GoodsCommentLogBean {
 
 	/** 评论编号 */
-	@Column(pk = true, name = "COMMENT_NO", type = Type.定长文本, description = "评论编号", canNull = false, size = 32, policy = "UUID")
+	@Column(pk = true, name = "COMMENT_NO", type = Type.定长文本, description = "评论编号",  size = 32, policy = "UUID")
 	private String commentNo;
 
 	/** 用户编号 */
-	@Column(name = "USER_ID", type = Type.定长文本, description = "用户编号", canNull = false, size = 32)
+	@Column(name = "USER_ID", type = Type.定长文本, description = "用户编号",  size = 32)
 	private String userID;
 
 	/** 用户名称 */
-	@Column(name = "USER_NAME", type = Type.变长文本, description = "用户名称", canNull = false, size = 50)
+	@Column(name = "USER_NAME", type = Type.变长文本, description = "用户名称",  size = 50)
 	private String userName;
 
 	/** 创建时间 */
-	@Column(name = "CREATE_TIME", type = Type.日期时间, description = "创建时间", canNull = false)
-	private java.sql.Timestamp createTime;
+	@Column(name = "CREATE_TIME", type = Type.日期时间, description = "创建时间", canNull = true)
+	private java.util.Date createTime;
 
 	/** 标题 */
-	@Column(name = "COMMENT_TITLE", type = Type.变长文本, description = "标题", canNull = false, size = 50)
+	@Column(name = "COMMENT_TITLE", type = Type.变长文本, description = "标题",  size = 50)
 	private String title;
 
 	/** 内容 */
-	@Column(name = "COMMENT_CONTENT", type = Type.变长文本, description = "内容", canNull = false, size = 500)
+	@Column(name = "COMMENT_CONTENT", type = Type.变长文本, description = "内容",  size = 500)
 	private String content;
 
 	/** 等级 */
-	@Column(name = "COMMENT_GRADE", type = Type.数字整型, description = "等级", canNull = false)
+	@Column(name = "COMMENT_GRADE", type = Type.数字整型, description = "等级", canNull = true)
 	private int grade;
 
 	/** 商品编号 */
-	@Column(name = "GOODS_NO", type = Type.定长文本, description = "商品编号", canNull = false, size = 32)
+	@Column(name = "GOODS_NO", type = Type.定长文本, description = "商品编号",  size = 32)
 	private String goodsNo;
 
 	/**
@@ -103,7 +103,7 @@ public class GoodsCommentLogBean {
 	 * @author system
 	 * @since 2017-02-24 20:24:18
 	 */
-	public java.sql.Timestamp getCreateTime() {
+	public java.util.Date getCreateTime() {
 		return createTime;
 	}
 
@@ -112,7 +112,7 @@ public class GoodsCommentLogBean {
 	 * @author system
 	 * @since 2017-02-24 20:24:18
 	 */
-	public void setCreateTime(java.sql.Timestamp createTime) {
+	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
 	}
 

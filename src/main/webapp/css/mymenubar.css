@@ -1,0 +1,39 @@
+.mini-menu {
+	background: none !important;
+}
+
+.mini-menu-horizontal .mini-menu-border {
+	background: none !important;
+}
+
+.mini-menu-horizontal .mini-menu-inner {
+	background: none !important;
+}
+
+.mini-menu-border {
+	border: 0 !important;
+}
+
+.mini-menu-horizontal .mini-menuitem-allow {
+	background: none !important;
+}
+
+.mini-menuitem-text {
+	color: white !important;
+}
+
+.mini-menu-horizontal .mini-menu-popup {
+	background: #097CB7 !important;
+}
+
+.mini-menu-horizontal .mini-menuitem-hover {
+	background: #097CB7 !important;
+}
+
+.mini-menuitem-hover {
+	background: #097CB7 !important;
+}
+
+.mini-shadow {
+	background:#28A5CF  !important;
+}

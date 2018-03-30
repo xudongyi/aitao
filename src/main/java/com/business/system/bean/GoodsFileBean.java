@@ -9,35 +9,46 @@ import net.sf.rose.jdbc.bean.annotation.Type;
  * @author system
  * @since 2017-02-24 20:24:16
  */
-@Table(name = "GOODS_FILE", description = "商品图片表")
+@Table(name = "GOODS_FILE", description = "商品图片表" ,orderBy = "fileOrder")
 public class GoodsFileBean {
 
 	/** 图片编号 */
-	@Column(pk = true, name = "FILE_ID", type = Type.定长文本, description = "图片编号", canNull = false, size = 32, policy = "UUID")
+	@Column(pk = true, name = "FILE_ID", type = Type.定长文本, description = "图片编号", canNull = true, size = 32, policy = "UUID")
 	private String fileID;
 
 	/** 商品编号 */
-	@Column(name = "GOODS_NO", type = Type.定长文本, description = "商品编号", canNull = false, size = 32)
+	@Column(name = "GOODS_NO", type = Type.定长文本, description = "商品编号", canNull = true, size = 32)
 	private String goodsNo;
 
 	/** 图片地址 */
-	@Column(name = "FILE_URL", type = Type.变长文本, description = "图片地址", canNull = false, size = 255 )
+	@Column(name = "FILE_URL", type = Type.变长文本, description = "图片地址", canNull = true, size = 255 )
 	private String fileUrl;
+	
+	/** 排序 */
+	@Column(name = "FILE_ORDER", type = Type.数字整型, description = "排序", canNull = true )
+	private int fileOrder;
+	
+	/** 图片类型
+	 * 1:商品图片
+	 * 2:商品详细图片
+	 *  */
+	@Column(name = "FILE_TYPE", type = Type.变长文本, description = "图片类型", canNull = true, size = 1 )
+	private String fileType;
 
 	/** 创建人 */
-	@Column(name = "CREATE_USER", type = Type.变长文本, description = "创建人", canNull = false, size = 50)
+	@Column(name = "CREATE_USER", type = Type.变长文本, description = "创建人", canNull = true, size = 50)
 	private String createUser;
 
 	/** 创建时间 */
-	@Column(name = "CREATE_TIME", type = Type.日期时间, description = "创建时间", canNull = false)
+	@Column(name = "CREATE_TIME", type = Type.日期时间, description = "创建时间", canNull = true)
 	private java.sql.Timestamp createTime;
 
 	/** 修改人 */
-	@Column(name = "UPDATE_USER", type = Type.变长文本, description = "修改人", canNull = false, size = 50)
+	@Column(name = "UPDATE_USER", type = Type.变长文本, description = "修改人", canNull = true, size = 50)
 	private String updateUser;
 
 	/** 修改时间 */
-	@Column(name = "UPDATE_TIME", type = Type.日期时间, description = "修改时间", canNull = false)
+	@Column(name = "UPDATE_TIME", type = Type.日期时间, description = "修改时间", canNull = true)
 	private java.sql.Timestamp updateTime;
 
 	/**
@@ -164,6 +175,22 @@ public class GoodsFileBean {
 	 */
 	public void setUpdateTime(java.sql.Timestamp updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public int getFileOrder() {
+		return fileOrder;
+	}
+
+	public void setFileOrder(int fileOrder) {
+		this.fileOrder = fileOrder;
+	}
+
+	public String getFileType() {
+		return fileType;
+	}
+
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
 	}
 
 }

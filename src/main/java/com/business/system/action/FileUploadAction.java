@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.rose.initial.BootStart;
 import net.sf.rose.jdbc.service.Service;
 
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,37 +38,49 @@ public class FileUploadAction {
     
     @ResponseBody
     @RequestMapping(value = "/uploadFile.do",method = RequestMethod.POST)
-    public String upload(HttpServletResponse response, HttpServletRequest request, Service service) throws IOException {
-		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
-        String ctxPath = BootStart.getInstance().getWorkSpace().getAbsolutePath();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
-		String ymd = sdf.format(new Date());
-		ctxPath += File.separator + ymd + File.separator;
-		// 创建文件夹
-		File file = new File(ctxPath);
-		if (!file.exists()) {
-			file.mkdirs();
-		}
-		String fileName = null;
-		UUID uuid = null;
-		for (Map.Entry<String, MultipartFile> entity : fileMap.entrySet()) {
-			// 上传文件
-			MultipartFile mf = entity.getValue();
-			fileName = mf.getOriginalFilename();// 获取原文件名
-			fileName = fileName.substring(fileName.lastIndexOf("."));
-			// System.out.println("filename="+UUID.randomUUID()+"."+fileName);
-			uuid = UUID.randomUUID();
-			File uploadFile = new File(ctxPath + uuid + fileName);
-			try {
-				FileCopyUtils.copy(mf.getBytes(), uploadFile);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		String path = ymd + "/" + uuid + fileName;
-		// 将图片转换成网络地址
-		 return path;
+    public String upload(HttpServletResponse response, HttpServletRequest request, Service service){
+        try{
+            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+            Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
+            String ctxPath = "";
+            if (OS.indexOf("linux") >= 0) {
+                ctxPath = "/usr/local/app/appserver-01/webapps/imglibs";
+            } else if (OS.indexOf("windows") >= 0) {
+                ctxPath = BootStart.WINDOWS_PATH;
+            }
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+            String ymd = sdf.format(new Date());
+            ctxPath += File.separator + ymd + File.separator;
+            // 创建文件夹
+            File file = new File(ctxPath);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            String fileName = null;
+            UUID uuid = null;
+            for (Map.Entry<String, MultipartFile> entity : fileMap.entrySet()) {
+                // 上传文件
+                MultipartFile mf = entity.getValue();
+                fileName = mf.getOriginalFilename();// 获取原文件名
+                fileName = fileName.substring(fileName.lastIndexOf("."));
+                // System.out.println("filename="+UUID.randomUUID()+"."+fileName);
+                uuid = UUID.randomUUID();
+                File uploadFile = new File(ctxPath + uuid + fileName);
+                try {
+                    FileCopyUtils.copy(mf.getBytes(), uploadFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            String path = ymd + "/" + uuid + fileName;
+            // 将图片转换成网络地址
+            return path;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
 	}
 
 }

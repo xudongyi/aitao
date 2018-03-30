@@ -1,21 +1,23 @@
 package com.business.system.action;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.business.system.bean.UserBean;
 import com.business.system.service.UserService;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import net.sf.rose.jdbc.dao.BeanDAO;
 import net.sf.rose.jdbc.query.BeanSQL;
 import net.sf.rose.jdbc.service.Service;
 import net.sf.rose.web.utils.WebUtils;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 
 /** 
  * @author fengjian E-mail: 9110530@qq.com 
@@ -26,16 +28,59 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/user")
 public class UserAction {
+	
+	/**
+     * 验证用户名和密码的有效性
+     * @param loginName登录用户名
+     * @param password密码
+     */
+	@ResponseBody
+    @RequestMapping("/webLogin.do")
+    public int webLogin(HttpServletRequest request,Service service, UserBean
+     bean) {
+		BeanDAO dao = new BeanDAO(service); 
+		BeanSQL query = dao.getQuerySQL();
+		query.setEntityClass(UserBean.class);
+		Map<String, Object> map = new HashMap<String, Object>();
+	    map.put("loginName", bean.getLoginName());
+	    map.put("password", bean.getPassword());
+        query.createSql(map);
+        UserBean user = dao.get();
+        if (user == null) {
+        	// 用户名或密码错误
+        	return -1;
+        } else if (user.getRoler() != 1 && user.getRoler() != 2) {
+        	// 用户权限不足
+        	return -2;
+        }
+
+        // 登录成功，添加该用户到session
+        HttpSession session = request.getSession();
+        session.setAttribute("webuser", user);
+        return 1;
+    }
+
+    /**
+     * 注销登录
+     */
+    @RequestMapping("/webLogout.do")
+    public String webLogout(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.removeAttribute("webuser");
+        return "redirect:/page/backold/login.jsp";
+    }
+    
 
 	/**
 	 * 用户登录
+	 * @author zhangqiang
 	 */
 	@ResponseBody
 	@RequestMapping("/login.do")
-	public int login(Service service, UserBean bean) {
+	public Object login(Service service, UserBean bean,HttpServletRequest request) {
 		BeanDAO dao = new BeanDAO(service);
 		UserService s = new UserService();
-		return s.login(dao, bean);
+		return s.login(request,dao, bean);
 	}
 
 	/**
@@ -76,7 +121,9 @@ public class UserAction {
 
 	/**
 	 * 保存用户信息
+	 * @author zhangqiang
 	 */
+	@Transactional
 	@ResponseBody
 	@RequestMapping("/save.do")
 	public int save(Service service, UserBean bean) {

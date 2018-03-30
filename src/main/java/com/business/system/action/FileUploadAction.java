@@ -39,16 +39,10 @@ public class FileUploadAction {
     public String upload(HttpServletResponse response, HttpServletRequest request, Service service) throws IOException {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
-		String ctxPath = "";
-		if (OS.indexOf("linux") >= 0) {
-			ctxPath = BootStart.getConfigProperty("file.linux.path");
-		} else if (OS.indexOf("windows") >= 0) {
-			ctxPath = BootStart.getConfigProperty("file.windows.path");
-		}
+        String ctxPath = BootStart.getInstance().getWorkSpace().getAbsolutePath();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
 		String ymd = sdf.format(new Date());
 		ctxPath += File.separator + ymd + File.separator;
-		System.out.println("ctxpath=" + ctxPath);
 		// 创建文件夹
 		File file = new File(ctxPath);
 		if (!file.exists()) {

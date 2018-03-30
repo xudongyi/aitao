@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.List,sun.misc.BASE64Decoder" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@include file="/js/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -124,7 +124,7 @@
 	function uploadImg(num) {
 		var oldUrl = document.getElementById("url"+num).value;
 		mini.open({
-		    url: "${ctx}/page/good/uploadImg.jsp?filename=url"+num,
+		    url: "${ctx}/page/backold/good/uploadImg.jsp?filename=url"+num,
             title: "上传图片", width: 400, height: 200,
             onload: function () {
             var iframe = this.getIFrameEl();

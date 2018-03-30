@@ -302,7 +302,7 @@
 	
 	function imgUpload(goodsNo) {
 		mini.open({
-			url: "${ctx}/page/good/goodImg.jsp?goodsNo="+goodsNo,
+			url: "${ctx}/page/backold/good/goodImg.jsp?goodsNo="+goodsNo,
 		      title: "上传图片", width: 700, height: 430,
 		      ondestroy: function (action) {
 		           datagrid.reload();

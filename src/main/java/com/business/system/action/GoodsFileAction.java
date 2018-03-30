@@ -67,13 +67,7 @@ public class GoodsFileAction {
 	@ResponseBody
 	@RequestMapping("getImg.do")
     public String getImg(HttpServletRequest request, HttpServletResponse response, String url) {
-        String ctxPath = "D://uploadFiles";
-        if (OS.indexOf("linux") >= 0) {
-            ctxPath = BootStart.getConfigProperty("file.linux.path");
-        } else if (OS.indexOf("windows") >= 0) {
-            ctxPath = BootStart.getConfigProperty("file.windows.path");
-        }
-
+        String ctxPath = BootStart.getInstance().getWorkSpace().getAbsolutePath();
         url = ctxPath+"/"+url;
         String imgStr = "";
         try {

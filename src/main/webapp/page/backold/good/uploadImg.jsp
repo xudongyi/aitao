@@ -9,7 +9,6 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <script src="${ctx}/js/boot.js" type="text/javascript"></script>
-    <link href="${ctx}/js/miniui/themes/default/miniui_nteport.css" rel="stylesheet" type="text/css"/>
     <!--文件上传JS插件引入包  开始-->
     <link rel="stylesheet" type="text/css" href="${ctx}/js/uploadify/uploadify.css">
     <script language="javascript" type="text/javascript">
@@ -18,7 +17,6 @@
                 + "src='${ctx}/js/uploadify/jquery.uploadify.min.js?" + new Date()
                 + "'></s" + "cript>");
     </script>
-    <script type="text/javascript" src="${ctx}/js/uploadify/jquery.uploadify.js"></script>
     <!--文件上传JS插件引入包 结束-->
     <style type="text/css">
         table tr {
@@ -38,7 +36,6 @@
                     <div id="status-message" style="font-family:黑体;color:red;padding-left: 10px;">
                         *----提示：只能上传一个文件，如果上传多个文件，取最新上传的----*
                     </div>
-                </td>
                 </td>
             </tr>
             <tr>
@@ -116,7 +113,7 @@
             buttonText: "请上传文件",                 // 按钮上的文字
             buttonCursor: 'hand',                // 按钮的鼠标图标
             fileObjName: 'uploadify',
-            fileTypeExts: "*.*",             // 扩展名
+            fileTypeExts: "*.jpg;*.gif;*.png",             // 扩展名
             fileTypeDesc: "请选择文件",     // 文件说明
             auto: true,                // 选择之后，自动开始上传
             multi: false,               // 是否支持同时上传多个文件

@@ -59,7 +59,7 @@ public class GoodsBean {
 	private double netWeight;
 
 	/** 商品图片1 */
-	@Column(name = "IMG1", type = Type.变长文本, description = "商品图片1", canNull = false, size = 255)
+	@Column(name = "IMG1", type = Type.变长文本, description = "商品图片1", size = 255)
 	private String img1;
 
 	/** 商品图片2 */

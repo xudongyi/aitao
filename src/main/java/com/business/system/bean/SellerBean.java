@@ -20,9 +20,18 @@ public class SellerBean {
 	@Column(name = "SELLER_NAME", type = Type.变长文本, description = "商家名称",  size = 50)
 	private String sellerName;
 
+	/** 商家logo */
     @Column(name = "SELLER_IMG", type = Type.变长文本, description = "商家图片",  size = 50)
     private String sellerImg;
 
+	/** 商家微信二维码 */
+    @Column(name = "QR_IMG", type = Type.变长文本, description = "商家图片",  size = 50)
+    private String qrImg;
+    
+	/** 商家首页顶部图片 */
+    @Column(name = "TOP_IMG", type = Type.变长文本, description = "商家图片",  size = 50)
+    private String topImg;
+    
 	/** 商家等级 */
 	@Column(name = "SELLER_GRADE", type = Type.数字整型, description = "商家等级", canNull = true)
 	private int grade;
@@ -577,4 +586,20 @@ public class SellerBean {
     public void setQq3(String qq3) {
         this.qq3 = qq3;
     }
+
+	public String getQrImg() {
+		return qrImg;
+	}
+
+	public void setQrImg(String qrImg) {
+		this.qrImg = qrImg;
+	}
+
+	public String getTopImg() {
+		return topImg;
+	}
+
+	public void setTopImg(String topImg) {
+		this.topImg = topImg;
+	}
 }

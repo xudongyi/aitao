@@ -26,7 +26,7 @@ public class GoodsSortBean{
 
 	/** 京东代码 */
 	@Column(name = "JD_CODE", type = Type.变长文本, description = "京东代码", canNull = true, size = 50)
-	private String JdCode;
+	private String jdCode;
 
 	/** 分类名称 */
 	@Column(name = "SORT_NAME", type = Type.变长文本, description = "分类名称", canNull = true, size = 50)
@@ -81,7 +81,7 @@ public class GoodsSortBean{
 	 * @since 2017-03-28 20:02:49
 	 */
 	public String getJdCode() {
-		return JdCode;
+		return jdCode;
 	}
 
 	/**
@@ -152,8 +152,8 @@ public class GoodsSortBean{
 	 * @author system
 	 * @since 2017-03-28 20:02:49
 	 */
-	public void setJdCode(String JdCode) {
-		this.JdCode = JdCode;
+	public void setJdCode(String jdCode) {
+		this.jdCode = jdCode;
 	}
 
 	/**

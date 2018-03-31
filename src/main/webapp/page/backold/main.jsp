@@ -167,6 +167,13 @@
    	            "parent_id": "cd71ed3366154a718dbe5333359f749a",
    	            "url": "/page/backold/seller/seller.jsp?sellerNo="+sellerNo
    	        },
+   	     	{
+   			    "iconCls": "icon-sort",
+   			    "id": "7c96c70a2de24bd2a897bb526463b0b9",
+   			    "name": "商品分类",
+   			    "parent_id": "cd71ed3366154a718dbe5333359f749a",
+   			    "url": "/page/backold/seller/sellerSortment.jsp"
+   			},
    	        {
    	            "iconCls": "icon-good",
    	            "id": "7c96c70a2de24bd2a897bb526463b0a2",

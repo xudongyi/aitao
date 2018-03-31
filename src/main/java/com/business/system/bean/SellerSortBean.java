@@ -15,7 +15,11 @@ public class SellerSortBean {
 	/** 商品分类编号 */
 	@Column(pk = true, name = "SORT_NO", type = Type.定长文本, description = "商品分类编号", canNull = true, size = 32, policy = "UUID")
 	private String sortNo;
-
+	
+	/** 商家编号 */
+	@Column(name = "SELLER_NO", type = Type.定长文本, description = "商家编号",  size = 32)
+	private String sellerNo;
+	
 	/** 分类代码 */
 	@Column(name = "SORT_CODE", type = Type.变长文本, description = "分类代码", canNull = true, size = 50)
 	private String sortCode;
@@ -200,4 +204,12 @@ public class SellerSortBean {
         this.showIndex = showIndex;
     }
 
+	public String getSellerNo() {
+		return sellerNo;
+	}
+
+	public void setSellerNo(String sellerNo) {
+		this.sellerNo = sellerNo;
+	}
+    
 }

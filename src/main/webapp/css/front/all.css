@@ -362,8 +362,9 @@ a{
 	margin-right: 58px;
 	position: relative;
 	font-family: "微软雅黑";
-	color:#253245;
+    color: #333333 !important;
 	cursor: pointer;
+    font-size: 15px;
 }
 .header ul li a{
 	color:#253245
@@ -371,7 +372,7 @@ a{
 .blue {
 	color: #333333 !important;
 	font-weight: 500;
-    font-size:14px;
+    font-size:15px;
 	font-family: "微软雅黑";
 }
 

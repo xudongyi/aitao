@@ -373,7 +373,7 @@
         var oldUrl = document.getElementById(textId).value;
         mini.open({
             url: "${ctx}/page/backold/good/uploadImg.jsp?filename="+textId,
-            title: "上传图片", width: 400, height: 200,
+            title: "上传图片", width: 450, height: 200,
             onload: function () {
                 var iframe = this.getIFrameEl();
             },

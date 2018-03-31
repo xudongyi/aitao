@@ -91,44 +91,55 @@
 	 			<td>商家名称:</td>
 	 			<td><input name="sellerNo" class="mini-combobox" style="width:160px;" textField="sellerName" valueField="sellerNo" 
 	 					url="${ctx}/seller/totalList.do" required="true" readonly/></td>
-	 			<td>商品分类:</td>
+	 			<td>商城分类:</td>
 	 			<td><input name="sortNo" class="mini-treeselect" style="width:160px;" textField="sortName" valueField="sortNo" parentField="parentNO"
 	 					url="${ctx}/goods/sort/list.do" expandOnLoad="true" required="true" allowInput="true" onvalueChanged="sortChange" /></td>
+	 			<td>商品分类:</td>
+	 			<td><input name="sellerSortNo" class="mini-treeselect" style="width:160px;" textField="sortName" valueField="sortNo" parentField="parentNO"
+	 					url="${ctx}/seller/sort/list.do" expandOnLoad="true" required="true" allowInput="true" onvalueChanged="sellerSortChange" /></td>
+	 			
+	 		</tr>
+	 		<tr>
 	 			<td>品牌:</td>
 	 			<td><input id="brand" name="brand" class="mini-combobox" style="width:160px;" textField="sortPropertyValue"  
 	 					valueField="sortPropertyValue" url="" allowInput="true" required="true" /></td>
-	 		</tr>
-	 		<tr><td>商品价格(元):</td>
+	 			<td>商品价格(元):</td>
 	 			<td><input  name="price" class="mini-textbox" style="width:160px;" required="true" /></td>
 	 			<td>市场价(元):</td>
 	 			<td><input  name="marketPrice" class="mini-textbox" style="width:160px;" required="true" /></td>
 	 			<td>商品状态:</td>
 	 			<td><input id="onShelve" name="onShelve" class="mini-combobox" style="width:160px;" textField="text" valueField="value" 
 	 					url="${ctx}/system/dic/consult.do?sort=onShelve" required="true" /></td>
+	 			
+	 		</tr>
+	 		<tr>
 	 			<td>商品关键词:</td>
 	 			<td><input  name="keyWords" class="mini-textbox" style="width:160px;" required="true" /></td>
-	 		</tr>
-	 		<tr><td>商品毛重(kg):</td>
+	 			<td>商品毛重(kg):</td>
 	 			<td><input  name="grossWeight" class="mini-textbox" style="width:160px;" required="true" /></td>
 	 			<td>商品净重(kg):</td>
 	 			<td><input  name="netWeight" class="mini-textbox" style="width:160px;" required="true" /></td>
 	 			<td>上架时间:</td>
 	 			<td><input name="shelfTime" class="mini-datepicker" format="yyyy-MM-dd" required="true"
 	 					 style="width:160px;"  /></td>
+	 			
+	 		</tr>
+	 		<tr>
 	 			<td>供货总量:</td>
 	 			<td><input  name="totalCount" class="mini-textbox" style="width:160px;" required="true" /></td>
-	 		</tr>
-	 		<tr><td>商城分类:</td>
+	 			<td>商城分类:</td>
 	 			<td><input name="shopSort" class="mini-combobox" style="width:160px;" textField="text" valueField="value" 
 	 					url="${ctx}/system/dic/consult.do?sort=shopSort" /></td>
 	 			<td>累计销量:</td>
 	 			<td><input  name="salseCount" class="mini-textbox" style="width:160px;" readonly /></td>
 	 			<td>虚拟销量:</td>
 	 			<td><input  name="virtualSales" class="mini-textbox" style="width:160px;"/></td>
+	 			
+	 		</tr>
+	 		<tr>
 	 			<td>排序:</td>
 	 			<td><input name="goodOrder" class="mini-textbox" style="width:160px;" /></td>
-	 		</tr>
-	 		<tr><td>精品:</td>
+	 			<td>精品:</td>
 	 			<td><input name="fine" class="mini-combobox" style="width:160px;" textField="text" valueField="value" 
 	 					data="[{value:'1',text:'是'},{value:'0',text:'否'}]" readonly/></td>
 	 			<td>新品:</td>
@@ -137,11 +148,13 @@
 	 			<td>爆款:</td>
 	 			<td><input name="popularSales" class="mini-combobox" style="width:160px;" textField="text" valueField="value" 
 	 					data="[{value:'1',text:'是'},{value:'0',text:'否'}]" readonly/></td>
+	 			
+	 		</tr>
+	 		<tr>
 	 			<td>热销:</td>
 	 			<td><input name="hotSales" class="mini-combobox" style="width:160px;" textField="text" valueField="value" 
 	 					data="[{value:'1',text:'是'},{value:'0',text:'否'}]" readonly/></td>
-	 		</tr>
-	 		<tr><td>推荐:</td>
+	 			<td>推荐:</td>
 	 			<td><input name="recSales" class="mini-combobox" style="width:160px;" textField="text" valueField="value" 
 	 					data="[{value:'1',text:'是'},{value:'0',text:'否'}]" readonly/></td>
 	 			<td>图片上传</td>

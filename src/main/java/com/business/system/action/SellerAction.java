@@ -11,6 +11,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
 import com.business.system.bean.*;
+import com.business.system.util.DBTools;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -203,13 +204,16 @@ public class SellerAction {
      */
     @ResponseBody
     @RequestMapping("/sellerGoodsRank.do")
-	public List<GoodsBean> sellerGoodsRank(Service service,HttpServletRequest request,String sellerNo,int type){
+	public Object sellerGoodsRank(Service service,HttpServletRequest request,String sellerNo,int type){
         List<GoodsBean> list  = null;
         if(type==1){
-
+            //热销
+           return DBTools.getBeanList(service,GoodsBean.class,"select * from GOODS where SELLER_NO=? order by SALSE_COUNT desc",sellerNo);
         }else{
-
+            //热门
+            List<Map<String,Object>> counts = DBTools.getDataList(service,"select t2.counts,t3.* from (select count(1) counts,GOODS_NO from GOODS_ATTENTION_LOG group by GOODS_NO) t2 right join GOODS t3 on t2.GOODS_NO = t3.GOODS_NO where t3.SELLER_NO=? order by t2.counts desc",sellerNo);
+            return counts;
         }
-        return list;
+
     }
 }

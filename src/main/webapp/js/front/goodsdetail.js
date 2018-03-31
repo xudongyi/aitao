@@ -93,8 +93,9 @@ $(function() {
 		collection: [], //收藏记录
 		categoryGoods: [], //同类商品
 		klykGoods: [], //看了又看商品
-		categotys: [], //商家分类
-		goodsRank: [], //商品排行
+		categorys: [], //商家分类
+		goodsRank1: [], //商品热销排行
+		goodsRank2: [], //商品收藏排行
 		recommend: [], //推荐商品
 		enterHome: function() {
 			var that = this;
@@ -179,10 +180,11 @@ $(function() {
 		//看了又看商品
 		//		vm.klykGoods = http.get("/detail/getCollectInfo.do?goodsNo=");
 		//商家分类
-		vm.categotys = http.get("/seller/sort/treeTotalList.do?sellerNo="+vm.detail.sellerNo);
-
+		vm.categorys = http.get("/seller/sort/treeTotalList.do?sellerNo="+vm.detail.sellerNo);
+        console.log(vm.categorys)
         //商家商品排行
-        vm.goodsRank = http.get("/seller/sort/treeTotalList.do?sellerNo="+vm.detail.sellerNo);
+        vm.goodsRank1 = http.get("/seller/sellerGoodsRank.do?sellerNo="+vm.detail.sellerNo+"&type=1");
+        vm.goodsRank2 = http.get("/seller/sellerGoodsRank.do?sellerNo="+vm.detail.sellerNo+"&type=2");
 
 		//推荐商品
 		vm.recommend = http.get("/home/getGoods.do?type=2")

@@ -211,7 +211,7 @@
                 <div class="goods-bottom-left-bot1">
                     <div class="same">商品分类</div>
                     <ul class="category">
-                        <li ms-for="($index,el) in @category"><span class="ico-hide" ms-on-click="hideCategory($event)"
+                        <li ms-for="($index,el) in @categorys"><span class="ico-hide" ms-on-click="hideCategory($event)"
                                                                     style="cursor: pointer;"><em>－</em></span>
                             <span class="ico-show" ms-on-click="showCategory($event)"
                                   style="cursor: pointer;display: none"><span>+</span></span>
@@ -235,65 +235,32 @@
                         </ul>
                         <div id="hot_sales_list" class="ncs-top-panel">
                             <ol>
-                                <li>
+                                <li ms-for="($index,el) in @goodsRank1">
                                     <dl>
-                                        <dt><a href="index.php?act=goods&amp;goods_id=2573353">水洗棉系列-水洗棉四件套宜家风系列（床单款）
-                                            1.5m（5英尺）床 小格-蓝</a></dt>
+                                        <dt><a href="index.php?act=goods&amp;goods_id=2573353">{{@el.goodsName}}</a></dt>
                                         <dd class="goods-pic"><a href="index.php?act=goods&amp;goods_id=2573353"><span
-                                                class="thumb size40"><i></i><img
-                                                src="http://imgniu.zhaojiafang.com/store/goods/119/119_05694176933053435.jpg?imageView2/1/w/60/h/60/ignore-error/1/"
-                                                onload="javascript:DrawImage(this,40,40);" width="40"
+                                                class="thumb size40"><i></i><img ms-attr="{src: @baseUrl+'/imglibs/'+@el.img1}"
+                                                width="40"
                                                 height="40"></span></a>
                                         </dd>
-                                        <dd class="price pngFix"><strong>¥50</strong></dd>
-                                        <dd class="selled pngFix">售出：<strong>0</strong>笔</dd>
-                                    </dl>
-                                </li>
-                                <li>
-                                    <dl>
-                                        <dt><a href="index.php?act=goods&amp;goods_id=2573385">水洗棉系列-水洗棉四件套宜家风系列（床单款）
-                                            1.8m（6英尺）床 大格-绿</a></dt>
-                                        <dd class="goods-pic"><a href="index.php?act=goods&amp;goods_id=2573385"><span
-                                                class="thumb size40"><i></i><img
-                                                src="http://imgniu.zhaojiafang.com/store/goods/119/119_05694176469248663.jpg?imageView2/1/w/60/h/60/ignore-error/1/"
-                                                onload="javascript:DrawImage(this,40,40);" width="40"
-                                                height="40"></span></a>
-                                        </dd>
-                                        <dd class="price pngFix"><strong>¥53</strong></dd>
-                                        <dd class="selled pngFix">售出：<strong>0</strong>笔</dd>
+                                        <dd class="price pngFix"><strong>¥{{@el.price}}</strong></dd>
+                                        <dd class="selled pngFix">售出：<strong>{{@el.salseCount}}</strong>笔</dd>
                                     </dl>
                                 </li>
                             </ol>
                         </div>
                         <div id="hot_collect_list" class="ncs-top-panel hide">
                             <ol>
-                                <li>
+                                <li ms-for="($index,el) in @goodsRank2">
                                     <dl>
-                                        <dt><a href="index.php?act=goods&amp;goods_id=2573353">水洗棉系列-水洗棉四件套宜家风系列（床单款）
-                                            1.5m（5英尺）床 小格-蓝</a></dt>
+                                        <dt><a href="index.php?act=goods&amp;goods_id=2573353">{{@el.GOODS_NAME}}</a></dt>
                                         <dd class="goods-pic"><a href="index.php?act=goods&amp;goods_id=2573353"><span
                                                 class="thumb size40"><i></i><img
-                                                src="http://imgniu.zhaojiafang.com/store/goods/119/119_05694176933053435.jpg?imageView2/1/w/60/h/60/ignore-error/1/"
-                                                onload="javascript:DrawImage(this,40,40);" width="40"
+                                                ms-attr="{src: @baseUrl+'/imglibs/'+@el.IMG1}" width="40"
                                                 height="40"></span></a>
                                         </dd>
-                                        <dd class="price pngFix"><strong>¥50</strong></dd>
-                                        <dd class="collection pngFix" style="margin-left:0px">收藏人气：<strong>3</strong>
-                                        </dd>
-                                    </dl>
-                                </li>
-                                <li>
-                                    <dl>
-                                        <dt><a href="index.php?act=goods&amp;goods_id=2573385">水洗棉系列-水洗棉四件套宜家风系列（床单款）
-                                            1.8m（6英尺）床 大格-绿</a></dt>
-                                        <dd class="goods-pic"><a href="index.php?act=goods&amp;goods_id=2573385"><span
-                                                class="thumb size40"><i></i><img
-                                                src="http://imgniu.zhaojiafang.com/store/goods/119/119_05694176469248663.jpg?imageView2/1/w/60/h/60/ignore-error/1/"
-                                                onload="javascript:DrawImage(this,40,40);" width="40"
-                                                height="40"></span></a>
-                                        </dd>
-                                        <dd class="price pngFix"><strong>¥53</strong></dd>
-                                        <dd class="collection pngFix" style="margin-left:0px">收藏人气：<strong>2</strong>
+                                        <dd class="price pngFix"><strong>¥{{@el.PRICE}}</strong></dd>
+                                        <dd class="collection pngFix" style="margin-left:0px">收藏人气：<strong>{{@el.counts==null?0:@el.counts}}</strong>
                                         </dd>
                                     </dl>
                                 </li>

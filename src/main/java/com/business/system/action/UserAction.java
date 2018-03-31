@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import net.sf.rose.jdbc.dao.BeanDAO;
 import net.sf.rose.jdbc.query.BeanSQL;
 import net.sf.rose.jdbc.service.Service;
+import net.sf.rose.util.ConstantCode;
 import net.sf.rose.web.utils.WebUtils;
 
 /** 
@@ -57,6 +58,10 @@ public class UserAction {
         // 登录成功，添加该用户到session
         HttpSession session = request.getSession();
         session.setAttribute("webuser", user);
+        net.sf.rose.jdbc.UserBean userBean = new net.sf.rose.jdbc.UserBean();
+        userBean.setUserName(user.getLoginName());
+        userBean.setUserID(user.getUserID());
+        session.setAttribute(ConstantCode.USER_BEAN_NAME, userBean);
         return 1;
     }
 

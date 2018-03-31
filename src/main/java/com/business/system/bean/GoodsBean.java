@@ -27,6 +27,10 @@ public class GoodsBean {
 	/** 商品分类 */
 	@Column(name = "SORT_NO", type = Type.变长文本, description = "商品分类", canNull = true, size = 50)
 	private String sortNo;
+	
+	/** 商城分类 */
+	@Column(name = "SELLER_SORT_NO", type = Type.变长文本, description = "商品分类", canNull = true, size = 50)
+	private String sellerSortNo;
 
 	/** 市场价 */
 	@Column(name = "MARKET_PRICE", type = Type.数字双精度型, description = "市场价", canNull = true)
@@ -652,4 +656,12 @@ public class GoodsBean {
 		this.recSales = recSales;
 	}
 
+	public String getSellerSortNo() {
+		return sellerSortNo;
+	}
+
+	public void setSellerSortNo(String sellerSortNo) {
+		this.sellerSortNo = sellerSortNo;
+	}
+	
 }

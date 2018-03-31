@@ -10,7 +10,9 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.business.system.bean.GoodsFileBean;
 import com.business.system.bean.SellerBean;
+import com.business.system.bean.SellerFileBean;
 import com.business.system.bean.UserBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
@@ -86,48 +88,83 @@ public class SellerAction {
 	 */
 	@ResponseBody
 	@RequestMapping("/save.do")
-	public String save(HttpServletRequest request, Service service, String data) {
+	public String save(HttpServletRequest request, Service service, String data,String deleteId,String imgJson) {
 		SellerBean bean = StringUtil.parse(data, SellerBean.class);
 		//获取客户端文件
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		MultipartFile client_file = multipartRequest.getFile("sellerImg");//上传控件
-
+		MultipartFile qrfile = multipartRequest.getFile("qrImg");//二维码
+		MultipartFile topfile = multipartRequest.getFile("topImg");//顶部图片
 		if(client_file.getOriginalFilename() != null && !"".equals(client_file.getOriginalFilename()) 
 				&& bean.getSellerImg() != null && !"".equals(bean.getSellerImg())){
-			String ctxPath = "";
-			if (OS.indexOf("linux") >= 0) {
-				ctxPath = "/usr/local/app/appserver-01/webapps/imglibs";
-			} else if (OS.indexOf("windows") >= 0) {
-				ctxPath = BootStart.WINDOWS_PATH;
-			}
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
-			String ymd = sdf.format(new Date());
-			ctxPath += File.separator + ymd + File.separator;
-			
-			// 创建文件夹
-			File file = new File(ctxPath);
-			if (!file.exists()) {
-				file.mkdirs();
-			}
-			String fileName = null;
-			UUID uuid = null;
-			fileName = client_file.getOriginalFilename();// 获取原文件名
-			fileName = fileName.substring(fileName.lastIndexOf("."));
-			// System.out.println("filename="+UUID.randomUUID()+"."+fileName);
-			uuid = UUID.randomUUID();
-			File uploadFile = new File(ctxPath + uuid + fileName);
-			try {
-				FileCopyUtils.copy(client_file.getBytes(), uploadFile);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			bean.setSellerImg(ymd + "/" + uuid + fileName);
+			bean.setSellerImg(uploadImg(client_file));
+		}
+		if(qrfile.getOriginalFilename() != null && !"".equals(qrfile.getOriginalFilename()) 
+				&& bean.getQrImg() != null && !"".equals(bean.getQrImg())){
+			bean.setQrImg(uploadImg(qrfile));
+		}
+		if(topfile.getOriginalFilename() != null && !"".equals(topfile.getOriginalFilename()) 
+				&& bean.getTopImg() != null && !"".equals(bean.getTopImg())){
+			bean.setTopImg(uploadImg(topfile));
 		}
 		BeanDAO dao = new BeanDAO(service);
 		BeanSQL query = dao.getQuerySQL();
 		query.createSaveSql(bean,"status,strSeller");
 		int res = dao.update();
+		// 商品图片删除
+		if (deleteId != null && !"".equals(deleteId)) {
+			for (int i=0; i<deleteId.split(",").length; i++) {
+				String id = deleteId.split(",")[i];
+				if (id != null && !"".equals(id)) {
+					query.createDeleteSql(SellerFileBean.class, id);
+					dao.update();
+				}
+			}
+		}
+		
+		// 商品图片保存
+		if (imgJson != null && !"".equals(imgJson)) {
+			List<SellerFileBean> fileList = StringUtil.parseList(imgJson, SellerFileBean.class);
+			for (SellerFileBean file : fileList) {
+				file.setSellerNo(bean.getSellerNo());
+				query.createSaveSql(file);
+				dao.update();
+			}
+		}
+		
+		
 		return String.valueOf(res);
+	}
+	
+	public String uploadImg(MultipartFile client_file) {
+		String ctxPath = "";
+		if (OS.indexOf("linux") >= 0) {
+			ctxPath = "/usr/local/app/appserver-01/webapps/imglibs";
+		} else if (OS.indexOf("windows") >= 0) {
+			ctxPath = BootStart.WINDOWS_PATH;
+		}
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+		String ymd = sdf.format(new Date());
+		ctxPath += File.separator + ymd + File.separator;
+		
+		// 创建文件夹
+		File file = new File(ctxPath);
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+		String fileName = null;
+		UUID uuid = null;
+		fileName = client_file.getOriginalFilename();// 获取原文件名
+		fileName = fileName.substring(fileName.lastIndexOf("."));
+		// System.out.println("filename="+UUID.randomUUID()+"."+fileName);
+		uuid = UUID.randomUUID();
+		File uploadFile = new File(ctxPath + uuid + fileName);
+		try {
+			FileCopyUtils.copy(client_file.getBytes(), uploadFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return ymd + "/" + uuid + fileName;
 	}
 	
 	/**

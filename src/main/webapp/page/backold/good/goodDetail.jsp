@@ -200,7 +200,7 @@
 		<div id="addImgDiv" class="imgDiv">
 	        <a href="javascript:addImgDiv('','')">
 	            <div style="width:250px;height:250px;border:1px solid #B0B0B0;">
-	                <img style="position:relative;top:45px;left:45px;width:150px;height:150px;" src="../../images/addImg.png" />
+	                <img style="position:relative;top:45px;left:45px;width:150px;height:150px;" src="../../../images/addImg.png" />
 	            </div>
 	        </a>
 	    </div>
@@ -211,7 +211,7 @@
 		<div id="addDetailDiv" class="detailDiv">
 	        <a href="javascript:addDetailDiv('','')">
 	            <div style="width:250px;height:550px;border:1px solid #B0B0B0;">
-	                <img style="position:relative;top:195px;left:45px;width:150px;height:150px;" src="../../images/addImg.png" />
+	                <img style="position:relative;top:195px;left:45px;width:150px;height:150px;" src="../../../images/addImg.png" />
 	            </div>
 	        </a>
 	    </div>

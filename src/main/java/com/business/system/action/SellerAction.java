@@ -137,12 +137,7 @@ public class SellerAction {
 	}
 	
 	public String uploadImg(MultipartFile client_file) {
-		String ctxPath = "";
-		if (OS.indexOf("linux") >= 0) {
-			ctxPath = "/usr/local/app/appserver-01/webapps/imglibs";
-		} else if (OS.indexOf("windows") >= 0) {
-			ctxPath = BootStart.WINDOWS_PATH;
-		}
+		String ctxPath = BootStart.getInstance().getWorkSpacePath();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
 		String ymd = sdf.format(new Date());
 		ctxPath += File.separator + ymd + File.separator;

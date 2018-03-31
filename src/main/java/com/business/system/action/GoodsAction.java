@@ -15,9 +15,12 @@ import com.business.system.service.GoodSortService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.rose.initial.BootStart;
+import net.sf.rose.jdbc.DBUtils;
 import net.sf.rose.jdbc.PageBean;
 import net.sf.rose.jdbc.dao.BeanDAO;
+import net.sf.rose.jdbc.dao.MapDAO;
 import net.sf.rose.jdbc.query.BeanSQL;
+import net.sf.rose.jdbc.query.MapSQL;
 import net.sf.rose.jdbc.service.Service;
 import net.sf.rose.util.StringUtil;
 import net.sf.rose.web.utils.WebUtils;
@@ -76,6 +79,29 @@ public class GoodsAction {
 		BeanSQL query = dao.getQuerySQL();
 		query.setEntityClass(GoodsBean.class);
 		query.createSql(map);
+		return dao.list();
+	}
+	/**
+	 * 商品信息列表(不分页)
+	 */
+	@ResponseBody
+	@RequestMapping("/totalSortList.do")
+	public List<Map<String, Object>> totalSortList(HttpServletRequest request, Service service) {
+		Map<String, Object> map = WebUtils.getRequestData(request);
+		StringBuilder sql = new StringBuilder();
+		List<Object> params = new ArrayList<>();
+		sql.append(" SELECT T1.*,T2.PARENT_NO FROM GOODS AS T1 LEFT JOIN SELLER_SORT AS T2 ON T1.SELLER_SORT_NO =T2.SORT_NO WHERE 1=1 ");
+		if(map.containsKey("sellerNo")) {
+			sql.append(" AND T1.SELLER_NO = ? ");
+			params.add(map.get("sellerNo").toString());
+		}
+		if (map.containsKey("sellerSortNo_link") ){
+			sql.append(" AND T1.SELLER_SORT_NO <> '' ");
+		}
+		MapDAO dao = new MapDAO(service);
+		MapSQL query = dao.getQuerySQL();
+		query.setSQL(sql.toString());
+		query.setParameters(params);
 		return dao.list();
 	}
 

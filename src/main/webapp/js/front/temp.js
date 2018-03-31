@@ -149,7 +149,7 @@ avalon.component('ms-nav', {
             var baseUrl = "http://"+hostname+":"+port;
             this.imgPath = baseUrl+"/aitao/";
 			//初始化数据
-			this.indexCategory = http.get("/jf/home/getIndexSort.do");
+			this.indexCategory = http.get("/home/getIndexSort.do");
 		},
 		clickNav:function(index){
 			window.location.href=this.pagePath+"category/category.html?sortNo="+this.indexCategory[index].sortNo;

@@ -110,7 +110,7 @@ $(function() {
 		addGoodsFollow: function() {
 			try {
 				var userid = user.userID;
-				var re = http.post("/jf/detail/addCollection.do?userID=" + userid + "&goodsNo=" + this.detail.goodsNo);
+				var re = http.post("/detail/addCollection.do?userID=" + userid + "&goodsNo=" + this.detail.goodsNo);
 				if(re == -1) {
 					alert('已经收藏');
 				} else {

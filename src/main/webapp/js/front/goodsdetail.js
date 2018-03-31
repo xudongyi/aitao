@@ -93,6 +93,8 @@ $(function() {
 		collection: [], //收藏记录
 		categoryGoods: [], //同类商品
 		klykGoods: [], //看了又看商品
+		categotys: [], //商家分类
+		goodsRank: [], //商品排行
 		recommend: [], //推荐商品
 		enterHome: function() {
 			var that = this;
@@ -120,14 +122,27 @@ $(function() {
 			}
 		},
         showCategory:function(event){
-            $(event.target).parent().children("ul").show();
-            $(event.target).parent().children(".ico-hide").show();
-            $(event.target).parent().children(".ico-show").hide();
+            $(event.target).parent().parent().children("ul").show();
+            $(event.target).parent().parent().children(".ico-hide").show();
+            $(event.target).parent().parent().children(".ico-show").hide();
         },
         hideCategory:function(event){
-		    $(event.target).parent().children("ul").hide();
-		    $(event.target).parent().children(".ico-show").show();
-		    $(event.target).parent().children(".ico-hide").hide();
+            $(event.target).parent().parent().children("ul").hide();
+            $(event.target).parent().parent().children(".ico-show").show();
+            $(event.target).parent().parent().children(".ico-hide").hide();
+        },
+        changeRank:function(type){
+            $(".pngFix li").attr("class","");
+            if(type==1){
+                $("#hot_sales_tab").addClass("current");
+                $("#hot_collect_list").hide();
+                $("#hot_sales_list").show();
+
+            }else if(type==2){
+                $("#hot_collect_tab").addClass("current");
+                $("#hot_sales_list").hide();
+                $("#hot_collect_list").show();
+            }
         },
 		addFollow: function() {
 			var pars = {};
@@ -163,6 +178,12 @@ $(function() {
 		vm.categoryGoods = http.get("/detail/getTLSP.do?sellerNo=" + vm.detail.sellerNo + "&sortNo=" + vm.detail.sortNo)
 		//看了又看商品
 		//		vm.klykGoods = http.get("/detail/getCollectInfo.do?goodsNo=");
+		//商家分类
+		vm.categotys = http.get("/seller/sort/treeTotalList.do?sellerNo="+vm.detail.sellerNo);
+
+        //商家商品排行
+        vm.goodsRank = http.get("/seller/sort/treeTotalList.do?sellerNo="+vm.detail.sellerNo);
+
 		//推荐商品
 		vm.recommend = http.get("/home/getGoods.do?type=2")
 		//轮播图

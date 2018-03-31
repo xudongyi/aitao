@@ -10,10 +10,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.business.system.bean.GoodsFileBean;
-import com.business.system.bean.SellerBean;
-import com.business.system.bean.SellerFileBean;
-import com.business.system.bean.UserBean;
+import com.business.system.bean.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -196,4 +193,23 @@ public class SellerAction {
 		}
 		return res;
 	}
+
+    /**
+     * 商家商品排行
+     * @param service
+     * @param request
+     * @param sellerNo
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/sellerGoodsRank.do")
+	public List<GoodsBean> sellerGoodsRank(Service service,HttpServletRequest request,String sellerNo,int type){
+        List<GoodsBean> list  = null;
+        if(type==1){
+
+        }else{
+
+        }
+        return list;
+    }
 }

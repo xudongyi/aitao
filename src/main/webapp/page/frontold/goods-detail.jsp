@@ -211,15 +211,14 @@
                 <div class="goods-bottom-left-bot1">
                     <div class="same">商品分类</div>
                     <ul class="category">
-                        <li><span class="ico-hide" ms-on-click="hideCategory($event)"
-                                  style="cursor: pointer;"><em>－</em></span>
+                        <li ms-for="($index,el) in @category"><span class="ico-hide" ms-on-click="hideCategory($event)"
+                                                                    style="cursor: pointer;"><em>－</em></span>
                             <span class="ico-show" ms-on-click="showCategory($event)"
-                                                                                  style="cursor: pointer;display: none"><em>+</em></span>
-                            <a
-                                href="javascript:;">12868系列四件套</a>
+                                  style="cursor: pointer;display: none"><span>+</span></span>
+                            <a ms-attr="{href:'Detail2.html?categoryId='+el.id}">{{@el.name}}</a>
                             <ul>
-                                <li><span class="ico-sub">&nbsp;&nbsp;</span><a
-                                        href="">12868多规格四件套</a>
+                                <li ms-for="($index1,el1) in @el.childs"><span class="ico-sub">&nbsp;&nbsp;</span><a
+                                        ms-attr="{href:'Detail2.html?categoryId='+el1.id}">{{el1.name}}</a>
                                 </li>
                             </ul>
                         </li>
@@ -229,8 +228,80 @@
 
                 <div class="goods-bottom-left-bot1">
                     <div class="same">商品排行</div>
-                    <div class="category-list">
-
+                    <div class="rank-content">
+                        <ul class="ncs-top-tab pngFix">
+                            <li ms-on-click="changeRank(1)" id="hot_sales_tab" class="current"><a>热销商品排行</a></li>
+                            <li ms-on-click="changeRank(2)" id="hot_collect_tab"><a>热门收藏排行</a></li>
+                        </ul>
+                        <div id="hot_sales_list" class="ncs-top-panel">
+                            <ol>
+                                <li>
+                                    <dl>
+                                        <dt><a href="index.php?act=goods&amp;goods_id=2573353">水洗棉系列-水洗棉四件套宜家风系列（床单款）
+                                            1.5m（5英尺）床 小格-蓝</a></dt>
+                                        <dd class="goods-pic"><a href="index.php?act=goods&amp;goods_id=2573353"><span
+                                                class="thumb size40"><i></i><img
+                                                src="http://imgniu.zhaojiafang.com/store/goods/119/119_05694176933053435.jpg?imageView2/1/w/60/h/60/ignore-error/1/"
+                                                onload="javascript:DrawImage(this,40,40);" width="40"
+                                                height="40"></span></a>
+                                        </dd>
+                                        <dd class="price pngFix"><strong>¥50</strong></dd>
+                                        <dd class="selled pngFix">售出：<strong>0</strong>笔</dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt><a href="index.php?act=goods&amp;goods_id=2573385">水洗棉系列-水洗棉四件套宜家风系列（床单款）
+                                            1.8m（6英尺）床 大格-绿</a></dt>
+                                        <dd class="goods-pic"><a href="index.php?act=goods&amp;goods_id=2573385"><span
+                                                class="thumb size40"><i></i><img
+                                                src="http://imgniu.zhaojiafang.com/store/goods/119/119_05694176469248663.jpg?imageView2/1/w/60/h/60/ignore-error/1/"
+                                                onload="javascript:DrawImage(this,40,40);" width="40"
+                                                height="40"></span></a>
+                                        </dd>
+                                        <dd class="price pngFix"><strong>¥53</strong></dd>
+                                        <dd class="selled pngFix">售出：<strong>0</strong>笔</dd>
+                                    </dl>
+                                </li>
+                            </ol>
+                        </div>
+                        <div id="hot_collect_list" class="ncs-top-panel hide">
+                            <ol>
+                                <li>
+                                    <dl>
+                                        <dt><a href="index.php?act=goods&amp;goods_id=2573353">水洗棉系列-水洗棉四件套宜家风系列（床单款）
+                                            1.5m（5英尺）床 小格-蓝</a></dt>
+                                        <dd class="goods-pic"><a href="index.php?act=goods&amp;goods_id=2573353"><span
+                                                class="thumb size40"><i></i><img
+                                                src="http://imgniu.zhaojiafang.com/store/goods/119/119_05694176933053435.jpg?imageView2/1/w/60/h/60/ignore-error/1/"
+                                                onload="javascript:DrawImage(this,40,40);" width="40"
+                                                height="40"></span></a>
+                                        </dd>
+                                        <dd class="price pngFix"><strong>¥50</strong></dd>
+                                        <dd class="collection pngFix" style="margin-left:0px">收藏人气：<strong>3</strong>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt><a href="index.php?act=goods&amp;goods_id=2573385">水洗棉系列-水洗棉四件套宜家风系列（床单款）
+                                            1.8m（6英尺）床 大格-绿</a></dt>
+                                        <dd class="goods-pic"><a href="index.php?act=goods&amp;goods_id=2573385"><span
+                                                class="thumb size40"><i></i><img
+                                                src="http://imgniu.zhaojiafang.com/store/goods/119/119_05694176469248663.jpg?imageView2/1/w/60/h/60/ignore-error/1/"
+                                                onload="javascript:DrawImage(this,40,40);" width="40"
+                                                height="40"></span></a>
+                                        </dd>
+                                        <dd class="price pngFix"><strong>¥53</strong></dd>
+                                        <dd class="collection pngFix" style="margin-left:0px">收藏人气：<strong>2</strong>
+                                        </dd>
+                                    </dl>
+                                </li>
+                            </ol>
+                        </div>
+                        <p>
+                            <a href="https://www.zhaojiafang.wang/shop/index.php?act=show_store&amp;op=goods_all&amp;store_id=119">查看本店其他商品</a>
+                        </p>
                     </div>
                 </div>
 

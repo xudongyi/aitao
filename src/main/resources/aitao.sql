@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 127.0.0.1(本地数据库)
-Source Server Version : 50520
+Source Server         : 本地
+Source Server Version : 50150
 Source Host           : localhost:3306
 Source Database       : aitao
 
 Target Server Type    : MYSQL
-Target Server Version : 50520
+Target Server Version : 50150
 File Encoding         : 65001
 
-Date: 2018-03-31 08:55:06
+Date: 2018-03-31 17:52:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,6 +24,7 @@ CREATE TABLE `goods` (
   `GOODS_NAME` varchar(100) DEFAULT NULL,
   `PRICE` double DEFAULT NULL,
   `SORT_NO` varchar(50) DEFAULT NULL,
+  `SELLER_SORT_NO` varchar(50) DEFAULT NULL,
   `MARKET_PRICE` double DEFAULT NULL,
   `TOTAL_COUNT` int(10) DEFAULT NULL,
   `SALSE_COUNT` int(10) DEFAULT NULL,
@@ -56,26 +57,26 @@ CREATE TABLE `goods` (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES ('2fdfb2947eca449492fe32cb86f80a5a', '北欧简约混搭四件套床单款 荷兰小马', '400', 'aebd186246954646a6566c8e6e1c3e73', '0', '100', '0', '品牌1', '2017-05-19 15:46:35', '0', '0', '201705/f2bb844c-2285-40f7-806e-0742a7060218.jpg', null, null, null, null, '2017-05-19 15:46:35', null, '2017-05-19 15:46:35', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('6819ebf84dff440eb80bbe2a0d9ca9ec', '莫代尔大提花蚕丝被100%桑蚕丝', '0', '30eb22238f784db9a0150eec5ffc6bce', '0', '100', '0', '品牌1', '2017-05-19 17:30:07', '0', '0', '201705/5a3ec824-1643-454f-95c1-385a009605c7.jpg', null, null, null, null, '2017-05-19 17:30:07', null, '2017-05-19 17:30:07', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('6905691162b5441b8478ec690ff82f48', '雅居纺 全棉宜家小清新 床单款仙人柱', '105', 'aebd186246954646a6566c8e6e1c3e73', '0', '399', '0', '品牌1', '2017-05-17 15:04:08', '0', '0', '201705/7771c9e5-a4d0-4f3c-97c5-c50c40dce90a.jpg', null, null, null, null, '2017-05-17 15:04:08', null, '2017-05-17 15:04:08', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('69e62fd1cddd4c21a361dab35c95d876', '北欧简约混搭四件套床单款 荷兰小马', '199', 'aebd186246954646a6566c8e6e1c3e73', '400', '100', '0', '品牌1', '2017-05-07 00:00:00', '3', '2', '201705/5d923d86-06a7-4e64-89f3-fc0455cd5eee.jpg', null, null, null, null, '2017-05-07 14:08:06', null, '2017-05-07 15:52:13', '1', '四件套', '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '1', '商城一', '0', '1');
-INSERT INTO `goods` VALUES ('82f979372455460dba45ac42ab5edb52', '123', '123', 'aebd186246954646a6566c8e6e1c3e73', '123', '123', '0', '红豆', '2018-03-31 00:00:00', '123', '123', '201803/7feff135-397e-48fd-8422-fdbaa2bc2cbf.png', null, null, null, null, '2018-03-31 00:07:31', null, '2018-03-31 00:07:31', '123', '123', '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '123', '商城一', '0', '0');
-INSERT INTO `goods` VALUES ('89a6cb44432f4241b59c34e11abae394', '2017新品 3D透气床垫【厚款】凉席可水洗 ', '100', '95a6aa4b43d749099856a9ae5e5ba769', '299', '100', '0', '品牌1', '2017-05-07 00:00:00', '2', '2', '201705/97680097-a642-4da3-ac95-3001e43b6e20.jpg', null, null, null, null, '2017-05-07 15:24:56', null, '2017-05-07 15:24:56', '0', '普通床垫', '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', '商城一', '0', '0');
-INSERT INTO `goods` VALUES ('8dbde8746b2d4f87885ad5b54c3e3138', '静家居 工艺款简约宜家风四件套比水洗棉更舒服的双层纱黑白森林', '170', 'aebd186246954646a6566c8e6e1c3e73', '0', '398', '0', '品牌1', '2017-05-18 13:50:55', '0', '0', '201705/6085f2ca-4259-46d6-9481-b84bfc3f6399.jpg', null, null, null, null, '2017-05-18 13:50:56', null, '2017-05-18 13:50:56', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('981124baea7a4b17b99ba14ac110a036', '莫代尔大提花蚕丝被100%桑蚕丝', '1090', '30eb22238f784db9a0150eec5ffc6bce', '0', '100', '0', '品牌1', '2017-05-19 14:11:35', '0', '0', '201705/ac0abc2c-b139-42a6-8ebc-8be18ea2f65e.jpg', null, null, null, null, '2017-05-19 14:11:35', null, '2017-05-19 14:11:35', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('a784d8aae9c64bd782a252ab86d2823c', '莫代尔大提花蚕丝被100%桑蚕丝', '1090', '30eb22238f784db9a0150eec5ffc6bce', '0', '100', '0', '品牌1', '2017-05-19 14:21:22', '0', '0', '201705/f5e3a9ad-3846-4c98-b720-f9765b302e9e.jpg', null, null, null, null, '2017-05-19 14:21:22', null, '2017-05-19 14:21:22', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('ad7ea1b7a1ea4987812a44982807e7f9', '棉生活 2017新款色拼波点四件套床笠款圆点-黄', '105', 'aebd186246954646a6566c8e6e1c3e73', '0', '399', '0', '品牌1', '2017-05-19 17:26:01', '0', '0', '201705/10522f75-a18a-4d60-86a9-4cea4d234ac1.jpg', null, null, null, null, '2017-05-19 17:26:01', null, '2017-05-19 17:26:01', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('b0eaa34896354ea7aa73b9995d9c0c54', 'eee', '12', 'aebd186246954646a6566c8e6e1c3e73', '12', '24', '0', '红豆', '2017-05-09 00:00:00', '12', '1', '201705/4123bd60-0739-422b-acd1-605b334adadc.jpg', null, null, null, null, '2017-05-13 13:53:56', null, '2017-05-13 14:20:55', '12', 'eee', '0', '0', '0', '0', '04e8c21cbb6449899685c79fa188abd0', '1', '商城一', '0', '0');
-INSERT INTO `goods` VALUES ('b5280b15e05a4ab48688b2d44c459e67', '北欧简约混搭四件套床单款 荷兰小马', '400', 'aebd186246954646a6566c8e6e1c3e73', '0', '100', '0', '品牌1', '2017-05-19 15:46:14', '0', '0', '201705/c8862efa-dae1-4d3f-aad4-744cc0a41b8c.jpg', null, null, null, null, '2017-05-19 15:46:14', null, '2017-05-19 15:46:14', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('bb27b338403642ef803c13890f8f63dc', '棉生活 2017新款色拼波点四件套床笠款圆点-黄', '10546', 'aebd186246954646a6566c8e6e1c3e73', '0', '399', '0', '品牌1', '2017-05-19 15:55:05', '0', '0', '201705/17b0c546-dfc6-4d73-b780-08ca32aaf70b.jpg', null, null, null, null, '2017-05-19 15:55:05', null, '2017-05-19 15:55:05', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('cba6a78c36a84acd83694f7d49cdc018', '棉生活 2017新款色拼波点四件套床笠款圆点-黄', '105462', 'aebd186246954646a6566c8e6e1c3e73', '0', '399', '0', '品牌1', '2017-05-19 08:33:46', '0', '0', '201705/f7498cb4-6e47-4633-9189-0eab11f06491.jpg', null, null, null, null, '2017-05-19 08:33:46', null, '2017-05-19 08:33:46', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('d9ff50bdee9840f9afcbfcdbf928b096', '蚕丝被一云上.腾冲 浅金', '150', '30eb22238f784db9a0150eec5ffc6bce', '590', '100', '0', '品牌1', '2017-05-07 00:00:00', '6', '5', '201705/17a2e3bd-97c2-4619-b2ad-3a3520eb1f4b.jpg', null, null, null, null, '2017-05-07 15:17:00', null, '2017-05-07 15:50:03', '0', '蚕丝被', '0', '0', '1', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', '商城一', '0', '0');
-INSERT INTO `goods` VALUES ('da138698466645eaad5e882fd8ea40d0', '全棉13372斜纹活性印花四件套雅诺', '299', 'aebd186246954646a6566c8e6e1c3e73', '0', '100', '0', '品牌1', '2017-05-19 14:24:14', '0', '0', '201705/bed3072b-20a8-4e21-9fcb-e6b4b7376f66.jpg', null, null, null, null, '2017-05-19 14:24:14', null, '2017-05-19 14:24:14', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('e9499637c3274180bc9f65672c20b3ef', '免安装方顶蚊帐 清凉一夏', '99', '7c350e7d02544ceda8118b59d43d8083', '160', '100', '0', '品牌1', '2017-05-07 00:00:00', '1', '1', '201705/069c0601-f076-4bfa-b5ef-fd83d38d7fac.jpg', null, null, null, null, '2017-05-07 14:48:09', null, '2017-05-07 15:35:05', '0', '蚊帐', '0', '0', '0', '1', 'd359e8b250dd47cdbe4187e187f07e9b', '0', '商城一', '0', '0');
-INSERT INTO `goods` VALUES ('efe9eff2ae714c178eeb42694b9ed8bc', '棉生活 2017新款色拼波点四件套床笠款圆点-黄', '10', 'aebd186246954646a6566c8e6e1c3e73', '0', '399', '0', '品牌1', '2017-05-19 08:40:16', '0', '0', '201705/09f6dd17-028e-4f10-98fb-c54a3318f2d4.jpg', null, null, null, null, '2017-05-19 08:40:17', null, '2017-05-19 08:40:17', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('fb79f650ad3e498fb0000300c7c522cc', '活 2017新款色拼波点四件套床笠款圆点-黄', '0', 'aebd186246954646a6566c8e6e1c3e73', '0', '399', '0', '品牌1', '2017-05-19 14:02:50', '0', '0', '201705/ad12c123-cbbb-45fb-bfc2-05d1f893a74c.jpg', null, null, null, null, '2017-05-19 14:02:50', null, '2017-05-19 14:02:50', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
-INSERT INTO `goods` VALUES ('fb9043f5abba407f9f8d6811ef6b51a9', '全棉13372斜纹活性印花四件套雅诺', '180', 'aebd186246954646a6566c8e6e1c3e73', '299', '100', '0', '品牌1', '2017-05-07 00:00:00', '3', '2', '201705/6965cf23-8b23-4261-83e5-0b07e92344c0.jpg', null, null, null, null, '2017-05-07 14:29:35', null, '2017-05-07 15:52:22', '0', '四件套', '0', '0', '1', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', '商城一', '0', '1');
+INSERT INTO `goods` VALUES ('2fdfb2947eca449492fe32cb86f80a5a', '北欧简约混搭四件套床单款 荷兰小马', '400', 'aebd186246954646a6566c8e6e1c3e73', 'e5350ac99e384b0f9df81b42d670bedb', '0', '100', '0', '红豆', '2017-05-19 15:46:35', '0', '0', '201705/f2bb844c-2285-40f7-806e-0742a7060218.jpg', null, null, null, null, '2017-05-19 15:46:35', '55a1e5ed4af64473b7ec19468537ac75', '2018-03-31 15:06:42', '0', 'hh', '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', '', '0', '0');
+INSERT INTO `goods` VALUES ('6819ebf84dff440eb80bbe2a0d9ca9ec', '莫代尔大提花蚕丝被100%桑蚕丝', '0', '30eb22238f784db9a0150eec5ffc6bce', null, '0', '100', '0', '品牌1', '2017-05-19 17:30:07', '0', '0', '201705/5a3ec824-1643-454f-95c1-385a009605c7.jpg', null, null, null, null, '2017-05-19 17:30:07', null, '2017-05-19 17:30:07', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('6905691162b5441b8478ec690ff82f48', '雅居纺 全棉宜家小清新 床单款仙人柱', '105', 'aebd186246954646a6566c8e6e1c3e73', null, '0', '399', '0', '品牌1', '2017-05-17 15:04:08', '0', '0', '201705/7771c9e5-a4d0-4f3c-97c5-c50c40dce90a.jpg', null, null, null, null, '2017-05-17 15:04:08', null, '2017-05-17 15:04:08', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('69e62fd1cddd4c21a361dab35c95d876', '北欧简约混搭四件套床单款 荷兰小马', '199', 'aebd186246954646a6566c8e6e1c3e73', null, '400', '100', '0', '品牌1', '2017-05-07 00:00:00', '3', '2', '201705/5d923d86-06a7-4e64-89f3-fc0455cd5eee.jpg', null, null, null, null, '2017-05-07 14:08:06', null, '2017-05-07 15:52:13', '1', '四件套', '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '1', '商城一', '0', '1');
+INSERT INTO `goods` VALUES ('82f979372455460dba45ac42ab5edb52', '123', '123', 'aebd186246954646a6566c8e6e1c3e73', null, '123', '123', '0', '红豆', '2018-03-31 00:00:00', '123', '123', '201803/7feff135-397e-48fd-8422-fdbaa2bc2cbf.png', null, null, null, null, '2018-03-31 00:07:31', null, '2018-03-31 00:07:31', '123', '123', '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '123', '商城一', '0', '0');
+INSERT INTO `goods` VALUES ('89a6cb44432f4241b59c34e11abae394', '2017新品 3D透气床垫【厚款】凉席可水洗 ', '100', '95a6aa4b43d749099856a9ae5e5ba769', null, '299', '100', '0', '品牌1', '2017-05-07 00:00:00', '2', '2', '201705/97680097-a642-4da3-ac95-3001e43b6e20.jpg', null, null, null, null, '2017-05-07 15:24:56', null, '2017-05-07 15:24:56', '0', '普通床垫', '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', '商城一', '0', '0');
+INSERT INTO `goods` VALUES ('8dbde8746b2d4f87885ad5b54c3e3138', '静家居 工艺款简约宜家风四件套比水洗棉更舒服的双层纱黑白森林', '170', 'aebd186246954646a6566c8e6e1c3e73', null, '0', '398', '0', '品牌1', '2017-05-18 13:50:55', '0', '0', '201705/6085f2ca-4259-46d6-9481-b84bfc3f6399.jpg', null, null, null, null, '2017-05-18 13:50:56', null, '2017-05-18 13:50:56', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('981124baea7a4b17b99ba14ac110a036', '莫代尔大提花蚕丝被100%桑蚕丝', '1090', '30eb22238f784db9a0150eec5ffc6bce', null, '0', '100', '0', '品牌1', '2017-05-19 14:11:35', '0', '0', '201705/ac0abc2c-b139-42a6-8ebc-8be18ea2f65e.jpg', null, null, null, null, '2017-05-19 14:11:35', null, '2017-05-19 14:11:35', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('a784d8aae9c64bd782a252ab86d2823c', '莫代尔大提花蚕丝被100%桑蚕丝', '1090', '30eb22238f784db9a0150eec5ffc6bce', null, '0', '100', '0', '品牌1', '2017-05-19 14:21:22', '0', '0', '201705/f5e3a9ad-3846-4c98-b720-f9765b302e9e.jpg', null, null, null, null, '2017-05-19 14:21:22', null, '2017-05-19 14:21:22', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('ad7ea1b7a1ea4987812a44982807e7f9', '棉生活 2017新款色拼波点四件套床笠款圆点-黄', '105', 'aebd186246954646a6566c8e6e1c3e73', null, '0', '399', '0', '品牌1', '2017-05-19 17:26:01', '0', '0', '201705/10522f75-a18a-4d60-86a9-4cea4d234ac1.jpg', null, null, null, null, '2017-05-19 17:26:01', null, '2017-05-19 17:26:01', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('b0eaa34896354ea7aa73b9995d9c0c54', 'eee', '12', 'aebd186246954646a6566c8e6e1c3e73', null, '12', '24', '0', '红豆', '2017-05-09 00:00:00', '12', '1', '201705/4123bd60-0739-422b-acd1-605b334adadc.jpg', null, null, null, null, '2017-05-13 13:53:56', null, '2017-05-13 14:20:55', '12', 'eee', '0', '0', '0', '0', '04e8c21cbb6449899685c79fa188abd0', '1', '商城一', '0', '0');
+INSERT INTO `goods` VALUES ('b5280b15e05a4ab48688b2d44c459e67', '北欧简约混搭四件套床单款 荷兰小马', '400', 'aebd186246954646a6566c8e6e1c3e73', null, '0', '100', '0', '品牌1', '2017-05-19 15:46:14', '0', '0', '201705/c8862efa-dae1-4d3f-aad4-744cc0a41b8c.jpg', null, null, null, null, '2017-05-19 15:46:14', null, '2017-05-19 15:46:14', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('bb27b338403642ef803c13890f8f63dc', '棉生活 2017新款色拼波点四件套床笠款圆点-黄', '10546', 'aebd186246954646a6566c8e6e1c3e73', null, '0', '399', '0', '品牌1', '2017-05-19 15:55:05', '0', '0', '201705/17b0c546-dfc6-4d73-b780-08ca32aaf70b.jpg', null, null, null, null, '2017-05-19 15:55:05', null, '2017-05-19 15:55:05', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('cba6a78c36a84acd83694f7d49cdc018', '棉生活 2017新款色拼波点四件套床笠款圆点-黄', '105462', 'aebd186246954646a6566c8e6e1c3e73', null, '0', '399', '0', '品牌1', '2017-05-19 08:33:46', '0', '0', '201705/f7498cb4-6e47-4633-9189-0eab11f06491.jpg', null, null, null, null, '2017-05-19 08:33:46', null, '2017-05-19 08:33:46', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('d9ff50bdee9840f9afcbfcdbf928b096', '蚕丝被一云上.腾冲 浅金', '150', '30eb22238f784db9a0150eec5ffc6bce', null, '590', '100', '0', '品牌1', '2017-05-07 00:00:00', '6', '5', '201705/17a2e3bd-97c2-4619-b2ad-3a3520eb1f4b.jpg', null, null, null, null, '2017-05-07 15:17:00', null, '2017-05-07 15:50:03', '0', '蚕丝被', '0', '0', '1', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', '商城一', '0', '0');
+INSERT INTO `goods` VALUES ('da138698466645eaad5e882fd8ea40d0', '全棉13372斜纹活性印花四件套雅诺', '299', 'aebd186246954646a6566c8e6e1c3e73', null, '0', '100', '0', '品牌1', '2017-05-19 14:24:14', '0', '0', '201705/bed3072b-20a8-4e21-9fcb-e6b4b7376f66.jpg', null, null, null, null, '2017-05-19 14:24:14', null, '2017-05-19 14:24:14', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('e9499637c3274180bc9f65672c20b3ef', '免安装方顶蚊帐 清凉一夏', '99', '7c350e7d02544ceda8118b59d43d8083', null, '160', '100', '0', '品牌1', '2017-05-07 00:00:00', '1', '1', '201705/069c0601-f076-4bfa-b5ef-fd83d38d7fac.jpg', null, null, null, null, '2017-05-07 14:48:09', null, '2017-05-07 15:35:05', '0', '蚊帐', '0', '0', '0', '1', 'd359e8b250dd47cdbe4187e187f07e9b', '0', '商城一', '0', '0');
+INSERT INTO `goods` VALUES ('efe9eff2ae714c178eeb42694b9ed8bc', '棉生活 2017新款色拼波点四件套床笠款圆点-黄', '10', 'aebd186246954646a6566c8e6e1c3e73', null, '0', '399', '0', '品牌1', '2017-05-19 08:40:16', '0', '0', '201705/09f6dd17-028e-4f10-98fb-c54a3318f2d4.jpg', null, null, null, null, '2017-05-19 08:40:17', null, '2017-05-19 08:40:17', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('fb79f650ad3e498fb0000300c7c522cc', '活 2017新款色拼波点四件套床笠款圆点-黄', '0', 'aebd186246954646a6566c8e6e1c3e73', null, '0', '399', '0', '品牌1', '2017-05-19 14:02:50', '0', '0', '201705/ad12c123-cbbb-45fb-bfc2-05d1f893a74c.jpg', null, null, null, null, '2017-05-19 14:02:50', null, '2017-05-19 14:02:50', '0', null, '0', '0', '0', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', null, '0', '0');
+INSERT INTO `goods` VALUES ('fb9043f5abba407f9f8d6811ef6b51a9', '全棉13372斜纹活性印花四件套雅诺', '180', 'aebd186246954646a6566c8e6e1c3e73', null, '299', '100', '0', '品牌1', '2017-05-07 00:00:00', '3', '2', '201705/6965cf23-8b23-4261-83e5-0b07e92344c0.jpg', null, null, null, null, '2017-05-07 14:29:35', null, '2017-05-07 15:52:22', '0', '四件套', '0', '0', '1', '0', 'd359e8b250dd47cdbe4187e187f07e9b', '0', '商城一', '0', '1');
 
 -- ----------------------------
 -- Table structure for goods_attention_log
@@ -154,7 +155,7 @@ INSERT INTO `goods_file` VALUES ('058aaddfb06444e194b25b052c7de825', '6905691162
 INSERT INTO `goods_file` VALUES ('08c8343b21374e579543f60f84de5714', 'e9499637c3274180bc9f65672c20b3ef', '201705/6e9581b2-f055-45ab-b558-571540e50972.jpg', null, '2017-05-07 14:48:09', null, '2017-05-07 14:48:09', '4', '1');
 INSERT INTO `goods_file` VALUES ('0964456c3e9d487c9c0831cb8196a5fb', '6819ebf84dff440eb80bbe2a0d9ca9ec', '201705/7200474b-df26-453d-8354-ddc347b60e06.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:30:07', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:30:07', '0', '2');
 INSERT INTO `goods_file` VALUES ('0a30ac2f62a24fe6ab181c2dd881cf8d', '8dbde8746b2d4f87885ad5b54c3e3138', '201705/e0907511-f5b0-4eb1-b785-6793418766d6.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-18 13:50:57', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-18 13:50:57', '0', '2');
-INSERT INTO `goods_file` VALUES ('0d0ef06097364d42bed45c0936729e68', '2fdfb2947eca449492fe32cb86f80a5a', '201705/ec8d519d-d3d5-4cad-8539-5a284819b62f.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '0', '2');
+INSERT INTO `goods_file` VALUES ('0d0ef06097364d42bed45c0936729e68', '2fdfb2947eca449492fe32cb86f80a5a', '201705/ec8d519d-d3d5-4cad-8539-5a284819b62f.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '55a1e5ed4af64473b7ec19468537ac75', '2018-03-31 15:06:42', '0', '2');
 INSERT INTO `goods_file` VALUES ('0e9208605da64d3ab0a26fbd54eef77c', 'ad7ea1b7a1ea4987812a44982807e7f9', '201705/a13799ec-ea73-4eb1-a2b9-66182c3e5bd6.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:04', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:04', '0', '2');
 INSERT INTO `goods_file` VALUES ('1135d4de6685404b9d0db1e674e8b228', 'cba6a78c36a84acd83694f7d49cdc018', '201705/5a761072-d3df-4a00-a322-e7da6b839695.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 08:33:47', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 08:33:47', '4', '1');
 INSERT INTO `goods_file` VALUES ('11a4baa705ab4a0092ae8b87f70b4395', 'cba6a78c36a84acd83694f7d49cdc018', '201705/d717870c-a357-46cc-84a4-3092559e60cb.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 08:33:47', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 08:33:47', '8', '1');
@@ -192,7 +193,7 @@ INSERT INTO `goods_file` VALUES ('3be08cce30684b4b83ef1cf65be51aa5', 'cba6a78c36
 INSERT INTO `goods_file` VALUES ('3d1f33f4ad004db59615e9b0b790c186', '8dbde8746b2d4f87885ad5b54c3e3138', '201705/05a93254-61c5-4605-9eb1-3738f78814bf.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-18 13:50:56', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-18 13:50:56', '0', '2');
 INSERT INTO `goods_file` VALUES ('416d745b044247ca9102433ad27705ca', 'd9ff50bdee9840f9afcbfcdbf928b096', '201705/6c0ab1ef-0462-4668-bf71-d67439de5fcb.gif', null, '2017-05-07 15:17:00', null, '2017-05-07 15:17:00', '3', '2');
 INSERT INTO `goods_file` VALUES ('43c3f32a476849c6a40970766dce3abb', 'cba6a78c36a84acd83694f7d49cdc018', '201705/f7af274d-2381-49be-86a4-6fb52662b677.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 08:33:46', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 08:33:46', '0', '1');
-INSERT INTO `goods_file` VALUES ('459f6574b83447f5904cd441f4f275f2', '2fdfb2947eca449492fe32cb86f80a5a', '201705/398d476d-369a-4bbc-9ce8-dab67ba0b044.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '3', '1');
+INSERT INTO `goods_file` VALUES ('459f6574b83447f5904cd441f4f275f2', '2fdfb2947eca449492fe32cb86f80a5a', '201705/398d476d-369a-4bbc-9ce8-dab67ba0b044.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '55a1e5ed4af64473b7ec19468537ac75', '2018-03-31 15:06:42', '3', '1');
 INSERT INTO `goods_file` VALUES ('479690fc434a4eb48419936b8be50a3e', 'efe9eff2ae714c178eeb42694b9ed8bc', '201705/96247ecc-67e9-40bb-b695-fc77f0b0973e.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 08:40:18', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 08:40:18', '3', '1');
 INSERT INTO `goods_file` VALUES ('47ad4f0e4dc347f985239a2731430cfb', 'ad7ea1b7a1ea4987812a44982807e7f9', '201705/97c14028-9e11-4a2a-a5e4-733560b20f34.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:04', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:04', '0', '2');
 INSERT INTO `goods_file` VALUES ('47d3d9594949447ea9bf952b11e2990f', '6905691162b5441b8478ec690ff82f48', '201705/4e7cfc07-b721-4baa-b529-3649dd9f7cd5.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-17 15:04:12', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-17 15:04:12', '0', '2');
@@ -229,7 +230,7 @@ INSERT INTO `goods_file` VALUES ('7076c6cbc0d44c76929bd80f1e3598e7', 'efe9eff2ae
 INSERT INTO `goods_file` VALUES ('70c36e27ff6e4ea9ab80d68409436eeb', 'ad7ea1b7a1ea4987812a44982807e7f9', '201705/f08e6503-02e7-4fd8-b27a-50a235cb5ef4.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:05', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:05', '0', '2');
 INSERT INTO `goods_file` VALUES ('732d4fca677b44dfadc8effe04e0a354', '6905691162b5441b8478ec690ff82f48', '201705/7f0da0da-20cb-4789-b295-f554778fdc69.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-17 15:04:12', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-17 15:04:12', '0', '2');
 INSERT INTO `goods_file` VALUES ('75d4e6f2a7d94a4bb676daad2792e6d6', '6819ebf84dff440eb80bbe2a0d9ca9ec', '201705/07ad4eac-ff76-4960-876c-2f3ded32274f.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:30:07', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:30:07', '4', '1');
-INSERT INTO `goods_file` VALUES ('788abdf333f44054b443c9385624128f', '2fdfb2947eca449492fe32cb86f80a5a', '201705/7b33d71a-a089-459f-b1d3-b0c4d4438fad.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '2', '1');
+INSERT INTO `goods_file` VALUES ('788abdf333f44054b443c9385624128f', '2fdfb2947eca449492fe32cb86f80a5a', '201705/7b33d71a-a089-459f-b1d3-b0c4d4438fad.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '55a1e5ed4af64473b7ec19468537ac75', '2018-03-31 15:06:42', '2', '1');
 INSERT INTO `goods_file` VALUES ('790928b9c7514cb49b77ba07068c6fcc', 'fb79f650ad3e498fb0000300c7c522cc', '201705/d773a14c-fcd2-4200-b336-32b8dc2de172.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:02:50', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:02:50', '0', '2');
 INSERT INTO `goods_file` VALUES ('79e14a5bfd4c4e5eb7853ad0f6d2af2e', '8dbde8746b2d4f87885ad5b54c3e3138', '201705/669b4d73-45f2-4fa3-ab3b-fbfe1268a9ec.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-18 13:50:56', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-18 13:50:56', '3', '1');
 INSERT INTO `goods_file` VALUES ('7b5bdd38682a49b7ac93b006135f7321', '8dbde8746b2d4f87885ad5b54c3e3138', '201705/3640fa00-6f9d-4895-8a87-bafc8f9734cb.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-18 13:50:57', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-18 13:50:57', '0', '2');
@@ -260,7 +261,7 @@ INSERT INTO `goods_file` VALUES ('a2946e2e83f04df58f2734497652f58b', '8dbde8746b
 INSERT INTO `goods_file` VALUES ('a4d1e50fef584a0fa47c038130f9fe02', 'fb9043f5abba407f9f8d6811ef6b51a9', '201705/9750da95-91ae-4a78-913a-b506d1694d6a.jpg', null, '2017-05-07 14:29:35', null, '2017-05-07 14:29:35', '2', '1');
 INSERT INTO `goods_file` VALUES ('a4dc41ad27544fc8819d25f4e7457c9b', 'fb79f650ad3e498fb0000300c7c522cc', '201705/6d56e73f-aa9c-464d-8dad-c043aa54948c.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:02:50', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:02:50', '7', '1');
 INSERT INTO `goods_file` VALUES ('a640da91afb1472a8ceb9d12473365c8', 'bb27b338403642ef803c13890f8f63dc', '201705/1b42ffdf-21de-41b8-a9ba-fed991411389.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:55:07', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:55:07', '7', '1');
-INSERT INTO `goods_file` VALUES ('a6677350ab044fd6a569eaa29a23ad47', '2fdfb2947eca449492fe32cb86f80a5a', '201705/9adcebfd-84e8-4058-8a5f-16ac1ec11253.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '1', '1');
+INSERT INTO `goods_file` VALUES ('a6677350ab044fd6a569eaa29a23ad47', '2fdfb2947eca449492fe32cb86f80a5a', '201705/9adcebfd-84e8-4058-8a5f-16ac1ec11253.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '55a1e5ed4af64473b7ec19468537ac75', '2018-03-31 15:06:42', '1', '1');
 INSERT INTO `goods_file` VALUES ('a6d7eb9b7d7743eca7ce556d443e2944', 'da138698466645eaad5e882fd8ea40d0', '201705/ee623679-66cb-474a-8013-5f8bbe721fcf.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:24:14', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:24:14', '3', '1');
 INSERT INTO `goods_file` VALUES ('a700b85c90994867a45280cf0b157c88', 'cba6a78c36a84acd83694f7d49cdc018', '201705/271821cf-06d0-4b56-ad94-37076af97733.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 08:33:47', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 08:33:47', '5', '1');
 INSERT INTO `goods_file` VALUES ('a704690162b8458783fbfd1f3e5576e1', 'bb27b338403642ef803c13890f8f63dc', '201705/e3bbe97d-3b9b-48aa-a828-878f6228c000.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:55:06', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:55:06', '1', '1');
@@ -268,7 +269,7 @@ INSERT INTO `goods_file` VALUES ('aa391fd754404dbaabd73a5ddd6b24a9', '69e62fd1cd
 INSERT INTO `goods_file` VALUES ('ac2582ed9d824482921e32dad6b3fc71', '69e62fd1cddd4c21a361dab35c95d876', '201705/81a43d69-6940-4fbf-abd2-7200bed8f945.jpg', null, '2017-05-07 14:15:27', null, '2017-05-07 14:15:27', '3', '1');
 INSERT INTO `goods_file` VALUES ('ade07e9a423e49b1a72cd71faa028550', '8dbde8746b2d4f87885ad5b54c3e3138', '201705/45a7cfb6-71ea-4780-9224-cdbd5e882ef8.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-18 13:50:56', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-18 13:50:56', '8', '1');
 INSERT INTO `goods_file` VALUES ('afd970468a2d40c5b3d043ec876a5b43', '69e62fd1cddd4c21a361dab35c95d876', '201705/515349ab-854e-4512-80da-ce24585f01f1.jpg', null, '2017-05-07 14:15:27', null, '2017-05-07 14:15:27', '4', '1');
-INSERT INTO `goods_file` VALUES ('b07d1464713a4627bdbb707c6f67b6bd', '2fdfb2947eca449492fe32cb86f80a5a', '201705/9d311dc0-f864-4b05-8deb-eac27bb5069e.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '0', '1');
+INSERT INTO `goods_file` VALUES ('b07d1464713a4627bdbb707c6f67b6bd', '2fdfb2947eca449492fe32cb86f80a5a', '201705/9d311dc0-f864-4b05-8deb-eac27bb5069e.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '55a1e5ed4af64473b7ec19468537ac75', '2018-03-31 15:06:42', '0', '1');
 INSERT INTO `goods_file` VALUES ('b0c08b0a4ef2447c9ceae07847cb5149', 'd9ff50bdee9840f9afcbfcdbf928b096', '201705/a91b5584-407b-4a47-aaf9-e2e5cdfdfc93.jpg', null, '2017-05-07 15:17:00', null, '2017-05-07 15:17:00', '3', '1');
 INSERT INTO `goods_file` VALUES ('b1c6fdf1b72644048989b6086884cc4a', 'ad7ea1b7a1ea4987812a44982807e7f9', '201705/f6341b58-b40a-4c4d-90d5-c5646902ee54.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:02', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:02', '1', '1');
 INSERT INTO `goods_file` VALUES ('b1d993d741c745a382f0e4d5188ce485', 'a784d8aae9c64bd782a252ab86d2823c', '201705/0a7e6f60-cac7-4adc-b31d-481e74120955.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:21:22', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:21:22', '0', '1');
@@ -303,7 +304,7 @@ INSERT INTO `goods_file` VALUES ('ccba0bf5e15c4862bf765899a12241d5', 'bb27b33840
 INSERT INTO `goods_file` VALUES ('cdce1631178e411f86dbb8d6d0c20810', '69e62fd1cddd4c21a361dab35c95d876', '201705/8147b76f-eaa0-477c-af03-cc263dd76ba2.jpg', null, '2017-05-07 14:13:45', null, '2017-05-07 14:15:27', '1', '1');
 INSERT INTO `goods_file` VALUES ('cf49b15310fc49df84d91b381f7b4196', 'da138698466645eaad5e882fd8ea40d0', '201705/4373256b-b9eb-4992-9e5c-684a536852ab.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:24:14', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:24:14', '0', '2');
 INSERT INTO `goods_file` VALUES ('d0d4defe45f94772a9d606fef2fe8069', '89a6cb44432f4241b59c34e11abae394', '201705/e51d6a74-80af-40f3-ab9b-097564258a49.gif', null, '2017-05-07 15:24:56', null, '2017-05-07 15:24:56', '1', '2');
-INSERT INTO `goods_file` VALUES ('d295ab814e824e078a074c8ae796b747', '2fdfb2947eca449492fe32cb86f80a5a', '201705/28e8ac3c-2f58-4567-9189-35c311148641.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '4', '1');
+INSERT INTO `goods_file` VALUES ('d295ab814e824e078a074c8ae796b747', '2fdfb2947eca449492fe32cb86f80a5a', '201705/28e8ac3c-2f58-4567-9189-35c311148641.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 15:46:35', '55a1e5ed4af64473b7ec19468537ac75', '2018-03-31 15:06:42', '4', '1');
 INSERT INTO `goods_file` VALUES ('d2c8b6e01aeb4b19a039655cdd30387a', 'ad7ea1b7a1ea4987812a44982807e7f9', '201705/3a1e1651-b9cd-46c3-9933-13c6aebcbb66.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:03', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:03', '7', '1');
 INSERT INTO `goods_file` VALUES ('d4f70ba8a46a4815993917bb99132ceb', 'ad7ea1b7a1ea4987812a44982807e7f9', '201705/ecb9dd30-b459-490d-bc01-ebe8550806be.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:02', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 17:26:02', '2', '1');
 INSERT INTO `goods_file` VALUES ('d5462062225e4f1093053a73cf3dceea', 'da138698466645eaad5e882fd8ea40d0', '201705/4aeeb0f0-ec10-4d6d-a4fb-74a8e4809632.jpg', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:24:14', 'd359e8b250dd47cdbe4187e187f07e9b', '2017-05-19 14:24:14', '1', '1');
@@ -714,6 +715,8 @@ CREATE TABLE `seller` (
   `TEMPLET_NO` varchar(255) DEFAULT NULL,
   `MAIN_PAGE_URL` varchar(255) DEFAULT NULL,
   `SELLER_IMG` varchar(50) DEFAULT NULL,
+  `QR_IMG` varchar(50) DEFAULT NULL,
+  `TOP_IMG` varchar(50) DEFAULT NULL,
   `STR_SELLER` int(10) DEFAULT NULL,
   `qq1` varchar(20) DEFAULT NULL,
   `qq2` varchar(20) DEFAULT NULL,
@@ -724,8 +727,8 @@ CREATE TABLE `seller` (
 -- ----------------------------
 -- Records of seller
 -- ----------------------------
-INSERT INTO `seller` VALUES ('04e8c21cbb6449899685c79fa188abd0', '罗邦家纺', '1', '0', 'A', '', '南通开发区', '南通市开发区', '张三丰', '13814608011', '9110530@qq.com', '3333', '0', '0', '0', '0', null, '2017-05-13 13:47:17', null, '2017-05-13 13:57:39', '0', null, 'http://www.baidu.com', '201705/2af8eea2-22cd-46a0-ab8d-597e30209d48.jpg', '0', '9110530', '784816599', '');
-INSERT INTO `seller` VALUES ('d359e8b250dd47cdbe4187e187f07e9b', '测试商家', '1', '0', 'A', '', '南通开发区', '江苏南通', '徐冬益', '18551308728', '1922448115@qq.com', '11111111', '0', '0', '0', '0', null, '2017-05-07 12:26:59', null, '2018-03-31 08:51:06', '0', null, 'http://www.baidu.com', '201705/0d5e1ab9-6d5b-456e-a347-c5b421d6570d.jpg', '1', '', '', '');
+INSERT INTO `seller` VALUES ('04e8c21cbb6449899685c79fa188abd0', '罗邦家纺', '1', '0', 'A', '', '南通开发区', '南通市开发区', '张三丰', '13814608011', '9110530@qq.com', '3333', '0', '0', '0', '0', null, '2017-05-13 13:47:17', null, '2017-05-13 13:57:39', '0', null, 'http://www.baidu.com', '201705/2af8eea2-22cd-46a0-ab8d-597e30209d48.jpg', null, null, '0', '9110530', '784816599', '');
+INSERT INTO `seller` VALUES ('d359e8b250dd47cdbe4187e187f07e9b', '测试商家', '1', '0', 'A', '', '南通开发区', '江苏南通', '徐冬益', '18551308728', '1922448115@qq.com', '11111111', '0', '0', '0', '0', null, '2017-05-07 12:26:59', null, '2018-03-31 13:11:54', '0', null, 'http://www.baidu.com', '201803/7709097e-62a1-441b-a6f6-bf8d28589445.png', '201803/add44d48-2527-4b44-b2ee-b5888b996a46.png', '201803/ef345738-c08f-418f-bda4-b9ff2b9aca8d.png', '1', '', '', '');
 
 -- ----------------------------
 -- Table structure for seller_attention_log
@@ -766,6 +769,54 @@ CREATE TABLE `seller_comment_log` (
 -- ----------------------------
 -- Records of seller_comment_log
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for seller_file
+-- ----------------------------
+DROP TABLE IF EXISTS `seller_file`;
+CREATE TABLE `seller_file` (
+  `FILE_ID` char(32) NOT NULL,
+  `SELLER_NO` char(32) DEFAULT NULL,
+  `FILE_URL` varchar(255) DEFAULT NULL,
+  `FILE_ORDER` int(10) NOT NULL,
+  `FILE_TYPE` varchar(1) NOT NULL,
+  `CREATE_USER` varchar(50) DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `UPDATE_USER` varchar(255) DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`FILE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of seller_file
+-- ----------------------------
+INSERT INTO `seller_file` VALUES ('778abed91bb44a82b047c31dfc0dcc32', 'd359e8b250dd47cdbe4187e187f07e9b', '201803/7b03ef82-0aa5-44a9-833d-300e46f99e1e.png', '1', '1', null, '2018-03-31 12:10:06', null, '2018-03-31 13:11:55');
+
+-- ----------------------------
+-- Table structure for seller_sort
+-- ----------------------------
+DROP TABLE IF EXISTS `seller_sort`;
+CREATE TABLE `seller_sort` (
+  `SORT_NO` char(32) NOT NULL,
+  `SELLER_NO` char(32) DEFAULT NULL,
+  `SORT_CODE` varchar(50) DEFAULT NULL,
+  `SORT_NAME` varchar(50) DEFAULT NULL,
+  `SORT_ORDER` int(10) DEFAULT NULL,
+  `ON_USE` int(10) DEFAULT NULL,
+  `TB_CODE` varchar(50) DEFAULT NULL,
+  `JD_CODE` varchar(50) DEFAULT NULL,
+  `PARENT_NO` char(32) DEFAULT NULL,
+  `SHOW_INDEX` int(10) DEFAULT NULL,
+  PRIMARY KEY (`SORT_NO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of seller_sort
+-- ----------------------------
+INSERT INTO `seller_sort` VALUES ('2f6cbfa93ad5461493da9b8ba3490f26', 'd359e8b250dd47cdbe4187e187f07e9b', '1803311449', '2018匹马棉-----全棉大版花', '1', '1', '1803311441', '1803311441', '', '0');
+INSERT INTO `seller_sort` VALUES ('4dd80a64b4f047d09d22680e20349842', 'd359e8b250dd47cdbe4187e187f07e9b', '1803311745', '2018新品40S匹马棉全棉四件套', '2', '1', '123456', '123456', '', '0');
+INSERT INTO `seller_sort` VALUES ('851abe5a0177496c92fa71c823d3dbd0', '04e8c21cbb6449899685c79fa188abd0', '1803311751', '礼品盒', '1', '1', '123456', '123456', '', '0');
+INSERT INTO `seller_sort` VALUES ('e5350ac99e384b0f9df81b42d670bedb', 'd359e8b250dd47cdbe4187e187f07e9b', '1803311455', '大版花15个花色', '1', '1', '1803311454', '1803311454', '2f6cbfa93ad5461493da9b8ba3490f26', '0');
 
 -- ----------------------------
 -- Table structure for sys_dic
@@ -855,7 +906,7 @@ INSERT INTO `user` VALUES ('1153b92cafcf45ccb4011d9c05360e48', '徐冬益', 'xud
 INSERT INTO `user` VALUES ('18345496b3d14b31abce9c2653a7f024', '管理员', 'admin', '', '123@qq.com', '12345678', '12345678', '123456', '1', '1', '12', '2017-03-01 20:45:12', '320909876381721', '江苏南通', '南通开发区吉祥岛', '1', '18345496b3d14b31abce9c2653a7f023', 'admin', '2017-03-01 20:46:25', 'admin', '2017-03-01 20:46:32', '0', '2017-03-01 20:46:40', '2');
 INSERT INTO `user` VALUES ('46b9d83aff9e4376bf20053431465afd', '徐冬益', 'test', null, '1922448115@qq.com', '18551308728', '0', '123456', null, '0', '0', null, null, null, null, '1', null, null, '2017-05-07 20:03:14', null, '2017-08-26 15:04:02', '6', '2017-08-26 15:04:02', '0');
 INSERT INTO `user` VALUES ('55a1e5ed4af64473b7ec19468537ac75', '徐冬益', 'shop', null, '1922448115@qq.com', '18551308728', '0', '123456', null, '0', '0', null, null, null, null, '1', 'd359e8b250dd47cdbe4187e187f07e9b', null, '2017-05-07 12:26:59', null, '2017-05-13 15:10:43', '3', '2017-05-13 15:10:43', '1');
-INSERT INTO `user` VALUES ('56b9388b421d4dd0a0ba19387e3afaae', '冯健', 'fgg047', null, '9110530@qq.com', '13814608011', '0', '811260', null, '0', '0', null, null, null, null, '1', '04e8c21cbb6449899685c79fa188abd0', null, '2017-05-13 13:47:17', null, '2017-05-13 13:47:17', '0', null, '1');
-INSERT INTO `user` VALUES ('6653035560d94f69a1b04cc193a6779f', '赵书娴', 'zhaoshuxian', null, '332145073@qq.com', '13270680926', '0', '123qwe', null, '0', '0', null, null, null, null, '1', null, null, '2017-05-15 09:10:31', null, '2017-05-15 10:37:50', '3', '2017-05-15 10:37:50', '0');
+INSERT INTO `user` VALUES ('56b9388b421d4dd0a0ba19387e3afaae', '冯健', 'fgg047', null, '9110530@qq.com', '13814608011', '0', '123456', null, '0', '0', null, null, null, null, '1', '04e8c21cbb6449899685c79fa188abd0', null, '2017-05-13 13:47:17', null, '2017-05-13 13:47:17', '0', null, '1');
+INSERT INTO `user` VALUES ('6653035560d94f69a1b04cc193a6779f', '赵书娴', 'zhaoshuxian', null, '332145073@qq.com', '13270680926', '0', '123456', null, '0', '0', null, null, null, null, '1', null, null, '2017-05-15 09:10:31', null, '2017-05-15 10:37:50', '3', '2017-05-15 10:37:50', '0');
 INSERT INTO `user` VALUES ('73159c80d05b45ffb1798921f2f97031', '陈凯', 'yayazaixian', null, '299055979@qq.com', '', '0', 'yayazaixian', null, '0', '0', null, null, null, null, '1', null, null, '2017-05-13 13:24:24', null, '2017-05-13 13:24:45', '1', '2017-05-13 13:24:45', '0');
 INSERT INTO `user` VALUES ('81d0c8adf85441d48601f13dd2587d08', 'fff', '123456', null, '9110503@qq.com', '13814608011', '0', '123456', null, '0', '0', null, null, null, null, '1', null, null, '2017-05-13 15:14:14', null, '2017-05-13 15:14:40', '1', '2017-05-13 15:14:40', '0');

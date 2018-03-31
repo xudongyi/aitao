@@ -11,12 +11,14 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.business.system.bean.SellerSortBean;
+import com.business.system.bean.UserBean;
 
 import net.sf.rose.jdbc.dao.BeanDAO;
 import net.sf.rose.jdbc.query.BeanSQL;
@@ -38,12 +40,17 @@ public class SellerSortAction {
 	 */
 	@ResponseBody
 	@RequestMapping("/list.do")
-	public List<SellerSortBean> list(HttpServletRequest request, Service service) {
+	public List<SellerSortBean> list(HttpServletRequest request, Service service,String sellerNo) {
 		Map<String, Object> map = WebUtils.getRequestData(request);
 		BeanDAO dao = new BeanDAO(service);
 		BeanSQL query = dao.getQuerySQL();
 		query.setEntityClass(SellerSortBean.class);
-		query.createSql(map);
+		if(sellerNo==null||"".equals(sellerNo.trim())) {
+			HttpSession session = request.getSession();
+		    UserBean user = (UserBean) session.getAttribute("webuser");
+		    sellerNo = user.getSellerNo();
+		}
+		query.createSql("sellerNo", sellerNo);
 		query.addOrderby("sortOrder");
 		return dao.list();
 	}
@@ -53,11 +60,16 @@ public class SellerSortAction {
 	 */
 	@ResponseBody
 	@RequestMapping("/totalList.do")
-	public List<SellerSortBean> totalList(Service service) {
+	public List<SellerSortBean> totalList(Service service,HttpServletRequest request,String sellerNo) {
 		BeanDAO dao = new BeanDAO(service);
 		BeanSQL query = dao.getQuerySQL();
 		query.setEntityClass(SellerSortBean.class);
-		query.createSql();
+		if(sellerNo==null||"".equals(sellerNo.trim())) {
+			HttpSession session = request.getSession();
+		    UserBean user = (UserBean) session.getAttribute("webuser");
+		    sellerNo = user.getSellerNo();
+		}
+		query.createSql("sellerNo", sellerNo);
 		query.addOrderby("sortOrder");
 		return dao.list();
 	}
@@ -67,9 +79,9 @@ public class SellerSortAction {
 	 */
 	@ResponseBody
 	@RequestMapping("/treeTotalList.do")
-	public List<Map<String, Object>>  treeTotalList(Service service) {
+	public List<Map<String, Object>>  treeTotalList(Service service,HttpServletRequest request,String sellerNo) {
 		List<Map<String, Object>> data = new ArrayList<>();
-		List<SellerSortBean> SellerSortBeans = totalList(service);
+		List<SellerSortBean> SellerSortBeans = totalList(service,request,sellerNo);
 		for (SellerSortBean sellerSortBean : SellerSortBeans) {
 			String parentNo = sellerSortBean.getParentNO();
 			if(parentNo==null||("".equals(parentNo.trim()))) {
@@ -120,8 +132,11 @@ public class SellerSortAction {
 	 */
 	@ResponseBody
 	@RequestMapping("/save.do")
-	public String save(Service service, String json, String propertyJson) {
+	public String save(Service service,HttpServletRequest request, String json, String propertyJson) {
+	    HttpSession session = request.getSession();
+	    UserBean user = (UserBean) session.getAttribute("webuser");
 		SellerSortBean bean = StringUtil.parse(json, SellerSortBean.class);
+		bean.setSellerNo(user.getSellerNo());
 		BeanDAO dao = new BeanDAO(service);
 		BeanSQL query = dao.getQuerySQL();
 		query.createSaveSql(bean,"onUse,showIndex");

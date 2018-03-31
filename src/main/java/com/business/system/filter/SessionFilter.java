@@ -36,8 +36,10 @@ public class SessionFilter implements Filter{
         // 获取白名单
         init(filterConfig);
         boolean isnocheck = getRegexResult(noFilterURI,path);
-
-        if(path.contains(".do") || path.contains("/images/") || path.contains("/css/") || path.contains("/js/") || isnocheck || req.getSession().getAttribute("webuser")!=null){
+        //前台页面无需过滤
+        //images,js,css无需过滤
+        //登录页面以及登陆后无需过滤
+        if(path.contains("/frontold/") || path.contains(".do") || path.contains("/images/") || path.contains("/css/") || path.contains("/js/") || isnocheck || req.getSession().getAttribute("webuser")!=null){
             filterChain.doFilter(req, res);
         }else{
             res.sendRedirect("/aitao/page/backold/login.jsp");

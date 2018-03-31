@@ -71,13 +71,7 @@ public class GoodsFileAction {
 	@ResponseBody
 	@RequestMapping("getImg.do")
     public String getImg(String url) {
-        String ctxPath = "D://uploadFiles";
-        if (OS.indexOf("linux") >= 0) {
-            ctxPath = "/usr/local/app/appserver-01/webapps/imglibs";
-        } else if (OS.indexOf("windows") >= 0) {
-            ctxPath = BootStart.WINDOWS_PATH;
-        }
-
+        String ctxPath = BootStart.getInstance().getWorkSpacePath();
         url = ctxPath+"/"+url;
         String imgStr = "";
         try {

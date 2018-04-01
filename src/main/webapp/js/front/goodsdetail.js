@@ -103,7 +103,7 @@ $(function() {
 			layer.confirm('请选择您前往的官网!', {
 				btn: ['平台官网', '商家官网', '取消'] //按钮
 			}, function() {
-				window.location.href = '../shop/shopMain.html?sellerNo=' + that.seller.sellerNo;
+				window.location.href = projectUrl + "/page/frontold/shop-index.jsp?sellerNo="+that.seller.sellerNo;
 			}, function() {
 				window.location.href = that.seller.mainPageUrl;
 			});

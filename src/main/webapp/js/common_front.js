@@ -518,9 +518,9 @@ HttpBean.prototype = {
 var hostname = location.hostname;
 var port = location.port;
 var baseUrl = "http://"+hostname+":"+port;
-console.log(baseUrl)
+var projectUrl = baseUrl+"/aitao";
 //http请求实例
-var http = new HttpBean(baseUrl+"/aitao");
+var http = new HttpBean(projectUrl);
 
 
 

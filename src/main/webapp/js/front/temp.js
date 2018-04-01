@@ -131,10 +131,10 @@ avalon.component('ms-search', {
 avalon.component('ms-nav', {
 	template: '<div class="header">' +
 		'<div class="qbfl">' +
-		'<span><a ms-attr="{href:@pagePath+\'category/allcategory.html\'}">爱淘网采购平台</a></span>' +
+		'<span><a href="javascript:;">爱淘网采购平台</a></span>' +
 		'</div>' +
 		'<ul>' +
-		'<li><a class="blue" ms-attr="{href:@pagePath+\'home.html\'}">首页</a></li>' +
+		'<li><a class="blue">首页</a></li>' +
 		'<li  ms-for="($index, value) in @indexCategory" ms-on-click="clickNav($index)">{{@value.sortName}}</li>' +
 		'</ul>' +
 		'</div>',
@@ -152,7 +152,8 @@ avalon.component('ms-nav', {
 			this.indexCategory = http.get("/home/getIndexSort.do");
 		},
 		clickNav:function(index){
-			window.location.href=this.pagePath+"category/category.html?sortNo="+this.indexCategory[index].sortNo;
+		    //TODO 修改导航跳转地址
+			//window.location.href=this.pagePath+"category/category.html?sortNo="+this.indexCategory[index].sortNo;
 		}
 	}
 

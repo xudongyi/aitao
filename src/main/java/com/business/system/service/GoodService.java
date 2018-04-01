@@ -28,40 +28,49 @@ public class GoodService {
 		Map<String, Map<String, GoodsPriceBean>> map = new LinkedHashMap<>();
 		for (GoodsPriceBean bean : list) {
 			id = bean.getPrppertityName1();
-			if (id != null) {
+			if (id != null && !"".equals(id)) {
 				Map<String, GoodsPriceBean> m = map.get(id);
                 if (m == null) {
 					m = new LinkedHashMap<>();
-					map.put(id, m);
 				}
-				m.put(bean.getPropertityValue1(), bean);
+                if(bean.getPropertityValue1()!=null && !"".equals(bean.getPropertityValue1())){
+                    m.put(bean.getPropertityValue1(), bean);
+                    map.put(id, m);
+                }
+
 			}
 			id = bean.getPrppertityName2();
-			if (id != null) {
+			if (id != null && !"".equals(id)) {
 				Map<String, GoodsPriceBean> m = map.get(id);
 				if (m == null) {
 					m = new LinkedHashMap<>();
-					map.put(id, m);
 				}
-				m.put(bean.getPropertityValue2(), bean);
+                if(bean.getPropertityValue2()!=null && !"".equals(bean.getPropertityValue2())){
+                    m.put(bean.getPropertityValue2(), bean);
+                    map.put(id, m);
+                }
 			}
 			id = bean.getPrppertityName3();
-			if (id != null) {
+			if (id != null && !"".equals(id)) {
 				Map<String, GoodsPriceBean> m = map.get(id);
 				if (m == null) {
 					m = new LinkedHashMap<>();
-					map.put(id, m);
 				}
-				m.put(bean.getPropertityValue3(), bean);
+                if(bean.getPropertityValue3()!=null && !"".equals(bean.getPropertityValue3())){
+                    m.put(bean.getPropertityValue3(), bean);
+                    map.put(id, m);
+                }
 			}
 			id = bean.getPrppertityName4();
-			if (id != null) {
+			if (id != null && !"".equals(id)) {
 				Map<String, GoodsPriceBean> m = map.get(id);
 				if (m == null) {
 					m = new LinkedHashMap<>();
-					map.put(id, m);
 				}
-				m.put(bean.getPropertityValue4(), bean);
+                if(bean.getPropertityValue4()!=null && !"".equals(bean.getPropertityValue4())){
+                    m.put(bean.getPropertityValue4(), bean);
+                    map.put(id, m);
+                }
 			}
 		}
 		return map;

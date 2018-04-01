@@ -139,7 +139,7 @@
                 <div class="right-goods-container">
                     <ul class="detail-right-goods">
                         <li ms-for="($index,value) in @sameSort">
-                            <a ms-attr="{href:'Detail2.html?goodsNo='+value.goodsNo}">
+                            <a ms-attr="{href:'${ctx}/page/frontold/goods-detail.jsp?goodsNo='+value.goodsNo}">
                                 <img ms-attr="{src: @baseUrl+'/imglibs/'+@value.img1}"/>
                                 <span>￥<i>{{@value.price}}</i></span>
                             </a>
@@ -193,7 +193,7 @@
                     <div class="slide-container">
                         <div class="same_content">
                             <div class="same_goods" ms-for="($index,el) in @categoryGoods">
-                                <a ms-attr="{href:'Detail2.html?goodsNo='+el.goodsNo}">
+                                <a ms-attr="{href:'${ctx}/page/frontold/goods-detail.jsp?goodsNo='+el.goodsNo}">
                                     <img onerror="this.src='${ctx}/images/front/detail/spp-q.png'"
                                          ms-attr="{src: @baseUrl+'/imglibs/'+@el.img1}"/>
                                     <span>
@@ -215,10 +215,10 @@
                                                                     style="cursor: pointer;"><em>－</em></span>
                             <span class="ico-show" ms-on-click="showCategory($event)"
                                   style="cursor: pointer;display: none"><span>+</span></span>
-                            <a ms-attr="{href:'Detail2.html?categoryId='+el.id}">{{@el.name}}</a>
+                            <a ms-attr="{href:'${ctx}/page/frontold/shop-index.jsp?sellerNo='+seller.sellerNo}">{{@el.name}}</a>
                             <ul>
                                 <li ms-for="($index1,el1) in @el.childs"><span class="ico-sub">&nbsp;&nbsp;</span><a
-                                        ms-attr="{href:'Detail2.html?categoryId='+el1.id}">{{el1.name}}</a>
+                                        ms-attr="{href:'${ctx}/page/frontold/shop-index.jsp?sellerNo='+seller.sellerNo}">{{el1.name}}</a>
                                 </li>
                             </ul>
                         </li>
@@ -237,8 +237,8 @@
                             <ol>
                                 <li ms-for="($index,el) in @goodsRank1">
                                     <dl>
-                                        <dt><a href="index.php?act=goods&amp;goods_id=2573353">{{@el.goodsName}}</a></dt>
-                                        <dd class="goods-pic"><a href="index.php?act=goods&amp;goods_id=2573353"><span
+                                        <dt><a  ms-attr="{href:'${ctx}/page/frontold/goods-detail.jsp?goodsNo='+el.goodsNo}">{{@el.goodsName}}</a></dt>
+                                        <dd class="goods-pic"><a ms-attr="{href:'${ctx}/page/frontold/goods-detail.jsp?goodsNo='+el.goodsNo}"><span
                                                 class="thumb size40"><i></i><img ms-attr="{src: @baseUrl+'/imglibs/'+@el.img1}"
                                                 width="40"
                                                 height="40"></span></a>
@@ -253,8 +253,8 @@
                             <ol>
                                 <li ms-for="($index,el) in @goodsRank2">
                                     <dl>
-                                        <dt><a href="index.php?act=goods&amp;goods_id=2573353">{{@el.GOODS_NAME}}</a></dt>
-                                        <dd class="goods-pic"><a href="index.php?act=goods&amp;goods_id=2573353"><span
+                                        <dt><a  ms-attr="{href:'${ctx}/page/frontold/goods-detail.jsp?goodsNo='+el.GOODS_NO}">{{@el.GOODS_NAME}}</a></dt>
+                                        <dd class="goods-pic"><a ms-attr="{href:'${ctx}/page/frontold/goods-detail.jsp?goodsNo='+el.GOODS_NO}"><span
                                                 class="thumb size40"><i></i><img
                                                 ms-attr="{src: @baseUrl+'/imglibs/'+@el.IMG1}" width="40"
                                                 height="40"></span></a>
@@ -267,7 +267,7 @@
                             </ol>
                         </div>
                         <p>
-                            <a href="https://www.zhaojiafang.wang/shop/index.php?act=show_store&amp;op=goods_all&amp;store_id=119">查看本店其他商品</a>
+                            <a ms-attr="{href:'${ctx}/page/frontold/shop-index.jsp?sellerNo='+seller.sellerNo}">查看本店其他商品</a>
                         </p>
                     </div>
                 </div>
@@ -457,7 +457,7 @@
                 <ul>
 
                     <li ms-for="($index,el) in @recommend">
-                        <a ms-attr="{href:'Detail2.html?goodsNo='+el.goodsNo}">
+                        <a  ms-attr="{href:'${ctx}/page/frontold/goods-detail.jsp?goodsNo='+el.goodsNo}">
                             <img onerror="this.src='${ctx}/images/front/detail/tj_sp1.png'"
                                  ms-attr="{src: @baseUrl+'/imglibs/'+@el.img1}"/>
 

@@ -20,8 +20,8 @@
 </head>
 <body>
 	<div  ms-controller="box">
-		<div class="topImg" style="width:100%;height:163px;overflow:hidden;">
-				 <img ms-attr="{src: @baseUrl+'/imglibs/'+@sellerInfo[0].topImg}" alt="">
+		<div class="topImg" style="width:100%;height:163px;overflow:hidden; text-align: center">
+				 <img style="height:163px;overflow:hidden;" ms-attr="{src: @baseUrl+'/imglibs/'+@sellerInfo[0].topImg}" alt="">
 			</div>
 			<div class="menu menu_color" style="height:40px;width:100%;">
 				<div class="dropdown" ms-for="(index,el) in @menuInfo" >
@@ -61,30 +61,33 @@
 				<div>
 					<div class="hr"></div>
 				</div>
-				<div style="margin:50px 0 50px 30px;width: 360px; height: 400px;float:left;" 
-				     ms-for="($key,obj1) in goodsInfo"  ms-on-click="goodDetail(obj1.GOODS_NO)"  :if="(obj.sortNo==obj1.SELLER_SORT_NO||obj.sortNo==obj1.PARENT_NO)&&$key<3">
-		            <div class="image-style" >
-		              <a href="javascript:void(0)" target="_blank">
-		                <img style=" width:100%;height:100%" ms-attr="{src: @baseUrl+'/imglibs/'+obj1.IMG1}" alt="" >
-		              </a>
-		            </div>
-		            <div class="ibox2">
-		            	<div style="max-width:260px;overflow:hidden;height:30px;float:left">
-		            		{{obj1.GOODS_NAME}} 
-		            	</div>
-		            	               
-			            <span style="float: right; ">
+                <div style="text-align: center">
+                    <div style="margin:50px 0 50px 30px;width: 360px; height: 400px;display: inline-table"
+                         ms-for="($key,obj1) in goodsInfo"  ms-on-click="goodDetail(obj1.GOODS_NO)"  :if="(obj.sortNo==obj1.SELLER_SORT_NO||obj.sortNo==obj1.PARENT_NO)&&$key<3">
+                        <div class="image-style" >
+                            <a href="javascript:void(0)" target="_blank">
+                                <img style=" width:100%;height:100%" ms-attr="{src: @baseUrl+'/imglibs/'+obj1.IMG1}" alt="" >
+                            </a>
+                        </div>
+                        <div class="ibox2">
+                            <div style="max-width:260px;overflow:hidden;height:30px;float:left">
+                                {{obj1.GOODS_NAME}}
+                            </div>
+
+                            <span style="float: right; ">
 			                <a href="javascript:void(0)"  style="color: #FF5160;font-size:16px">了解产品详情</a>
 			            </span>
-		            </div>
-		            <div style="clear: both"></div>
-		            <div style="border-bottom: 2px solid #828282;width: 360px; height: 2px"></div>
-		           
-	          </div>
+                        </div>
+                        <div style="clear: both"></div>
+                        <div style="border-bottom: 2px solid #828282;width: 360px; height: 2px"></div>
+
+                    </div>
+                </div>
+
 			</div>
 		
 		
-		
+		<div style="clear: both"></div>
 			
 		</div>
 	<xmp :widget="[{is:'ms-bt-nav'},{level:2}]">
